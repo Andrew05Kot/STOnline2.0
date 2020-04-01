@@ -35,7 +35,7 @@ namespace STOnline.DAL.Services.SQLServices
 
         public void UpdateOrder(Order order)
         {
-            throw new NotImplementedException();
+            _SqlsqlunitOfWork.SQLOrderRepository.Update(order);
         }
     }
 }

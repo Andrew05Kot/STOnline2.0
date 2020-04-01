@@ -4,9 +4,9 @@ using System.Text;
 
 namespace STOnline.DAL.Interfaces.EntityInterfaces
 {
-    public interface IEntity<T>
+    public interface IEntity
     {
-        T Id { get; set; }
+        Guid Id { get; set; }
         string ToString();
     }
 }

@@ -36,8 +36,6 @@ namespace STOnline.WEB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddTransient<IOrder, OrderDataAccessLayer>();
-            //services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddControllers();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
@@ -46,24 +44,19 @@ namespace STOnline.WEB
                 options
                     .UseSqlServer(_confString.GetConnectionString("DefaultConnection"),
                         assembly =>
-                            assembly.MigrationsAssembly("STOnline.MIGRATIONS"));
+                            assembly.MigrationsAssembly("STOnline.Migrations"));
             });
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IOrderService, OrderService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            //else
-            //{
-            //    app.UseExceptionHandler("/Error");
-            //    app.UseHsts();
-            //}
+
 
             app.UseHttpsRedirection();
 
