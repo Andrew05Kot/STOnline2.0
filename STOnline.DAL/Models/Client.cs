@@ -1,7 +1,9 @@
 ﻿using STOnline.DAL.Interfaces.EntityInterfaces;
+using STOnline.DAL.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace STOnline.DAL.Models
@@ -18,34 +20,9 @@ namespace STOnline.DAL.Models
         public string ClientEmail { get; set; }
         [Required]
         public string ClientPassword { get; set; }
+        [ForeignKey("ClientId")]
+        public ICollection<Order> Order { get; set; }
 
-        //public Client(int id, string clientLastName, string clientFirstName, string clientPhoneNumber, string clientEmail, string clientPassword)
-        //{
-        //    this.Id = id;
-        //    this.ClientLastName = clientLastName;
-        //    this.ClientFirstName = clientFirstName;
-        //    this.ClientPhoneNumber = clientPhoneNumber;
-        //    this.ClientEmail = clientEmail;
-        //    this.ClientPassword = clientPassword;
-        //}
-        //public Client(string clientLastName, string clientFirstName, string clientPhoneNumber, string clientEmail, string clientPassword)
-        //{
-        //    this.ClientLastName = clientLastName;
-        //    this.ClientFirstName = clientFirstName;
-        //    this.ClientPhoneNumber = clientPhoneNumber;
-        //    this.ClientEmail = clientEmail;
-        //    this.ClientPassword = clientPassword;
-        //}
-        //public Client() { }
 
-        //public override string ToString()
-        //{
-        //    return "ClientId: " + this.Id +
-        //        "\n" + "\t" + "ClientLastName: " + this.ClientLastName +
-        //        "\n" + "\t" + "ClientFirstName: " + this.ClientFirstName +
-        //        "\n" + "\t" + "ClientPhoneNumber: " + this.ClientPhoneNumber +
-        //        "\n" + "\t" + "ClientClientEmail: " + this.ClientEmail +
-        //        "\n" + "\t" + "ClientPassword: " + this.ClientPassword;
-        //}
     }
 }

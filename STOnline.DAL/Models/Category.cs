@@ -1,7 +1,10 @@
-﻿using STOnline.DAL.Interfaces.EntityInterfaces;
+﻿using Newtonsoft.Json;
+using STOnline.DAL.Interfaces.EntityInterfaces;
+using STOnline.DAL.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace STOnline.DAL.Models
@@ -10,21 +13,9 @@ namespace STOnline.DAL.Models
     {
         [Required]
         public string CategoryName { get; set; }
-
-        //public Category(int id, string category)
-        //{
-        //    this.Id = id;
-        //    this.CategoryName = category;
-        //}
-        //public Category(string category)
-        //{
-        //    this.CategoryName = category;
-        //}
-        //public Category() { }
-        //public override string ToString()
-        //{
-        //    return "CategoryId: " + this.Id +
-        //        "\n" + "\t" + "Category: " + this.CategoryName;
-        //}
+        [ForeignKey("CategoryId")]
+        public ICollection<Order> Orders { get; set; }
+        [ForeignKey("CategoryId")]
+        public ICollection<WorkerCategory> WorkerCategories { get; set; }
     }
 }

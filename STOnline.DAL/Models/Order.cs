@@ -12,16 +12,11 @@ namespace STOnline.DAL.Model
 {
     public class Order : BaseEntity
     {
+        public Client Client { get; set; }
         [Required]
-        [JsonIgnore]
-        [ForeignKey("ClientId")]
-        public List<Client> Clients { get; set; }
-        [JsonIgnore]
         public Guid ClientId { get; set; }
-        [JsonIgnore]
-        [ForeignKey("CategoryId")]
-        public List<Category> Categories { get; set; }
-        [JsonIgnore]
+        public Category Category { get; set; }
+        [Required]
         public Guid CategoryId { get; set; }
         [Required]
         public string ModelAuto { get; set; }
@@ -29,32 +24,8 @@ namespace STOnline.DAL.Model
         public string AutoNumber { get; set; }
         public DateTime Data { get; set; }
 
-        //public Order(int id, int clientId, int categoryId, string modelAuto, string autoNumber, DateTime data)
-        //{
-        //    this.Id = id;
-        //    this.ClientId = clientId;
-        //    this.CategoryId = categoryId;
-        //    this.ModelAuto = modelAuto;
-        //    this.AutoNumber = autoNumber;
-        //    this.Data = data;
-        //}
-        //public Order(int clientId, int categoryId, string modelAuto, string autoNumber, DateTime data)
-        //{
-        //    this.ClientId = clientId;
-        //    this.CategoryId = categoryId;
-        //    this.ModelAuto = modelAuto;
-        //    this.AutoNumber = autoNumber;
-        //    this.Data = data;
-        //}
-        //public Order() { }
-        //public override string ToString()
-        //{
-        //    return "OrderId: " + this.Id +
-        //        "\n" + "\t" + "ClientId: " + this.ClientId +
-        //        "\n" + "\t" + "CategoryId: " + this.CategoryId +
-        //        "\n" + "\t" + "ModelAuto: " + this.ModelAuto +
-        //        "\n" + "\t" + "AutoNumber: " + this.AutoNumber +
-        //        "\n" + "\t" + "Data: " + this.Data;
-        //}
+        [ForeignKey("OrderId")]
+        public ICollection<Repair> Repairs { get; set; }
+
     }
 }

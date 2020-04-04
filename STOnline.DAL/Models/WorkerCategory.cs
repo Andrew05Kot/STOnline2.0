@@ -10,31 +10,12 @@ namespace STOnline.DAL.Models
 {
     public class WorkerCategory : BaseEntity
     {
-        //public int Id { get; set; }
+        public Worker Worker { get; set; }
         [Required]
-        [JsonIgnore]
-        [ForeignKey("WorkerId")]
-        public List<Worker> Workers { get; set; }
-        [JsonIgnore]
         public Guid WorkerId { get; set; }
+        public Category Category { get; set; }
         [Required]
-        [JsonIgnore]
-        [ForeignKey("CategoryId")]
-        public List<Category> Categoryes { get; set; }
-        [JsonIgnore]
         public Guid CategoryId { get; set; }
 
-    //    public WorkerCategory(int id, int workerId, int categoryId)
-    //    {
-    //        this.Id = id;
-    //        this.WorkerId = workerId;
-    //        this.CategoryId = categoryId;
-    //    }
-    //    public WorkerCategory(int workerId, int categoryId)
-    //    {
-    //        this.WorkerId = workerId;
-    //        this.CategoryId = categoryId;
-    //    }
-    //    public WorkerCategory() { }
     }
 }
