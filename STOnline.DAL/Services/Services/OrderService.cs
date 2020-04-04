@@ -22,7 +22,8 @@ namespace STOnline.DAL.Services.SQLServices
 
         public Order GetOrderById(int Id)
         {
-            return _SqlsqlunitOfWork.SQLOrderRepository.Get(Id);
+            //return _SqlsqlunitOfWork.SQLOrderRepository.GetById(Id);
+            return new Order();
         }
         public void AddOrder(Order order)
         {

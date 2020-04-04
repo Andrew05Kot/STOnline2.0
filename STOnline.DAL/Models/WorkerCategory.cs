@@ -12,10 +12,10 @@ namespace STOnline.DAL.Models
     {
         public Worker Worker { get; set; }
         [Required]
-        public Guid WorkerId { get; set; }
+        public int WorkerId { get; set; }
         public Category Category { get; set; }
         [Required]
-        public Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
 
     }
 }

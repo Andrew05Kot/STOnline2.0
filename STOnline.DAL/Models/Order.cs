@@ -14,10 +14,10 @@ namespace STOnline.DAL.Model
     {
         public Client Client { get; set; }
         [Required]
-        public Guid ClientId { get; set; }
+        public int ClientId { get; set; }
         public Category Category { get; set; }
         [Required]
-        public Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
         [Required]
         public string ModelAuto { get; set; }
         [Required]

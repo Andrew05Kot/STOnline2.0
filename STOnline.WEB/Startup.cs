@@ -20,6 +20,10 @@ using STOnline.DAL.Services.SQLServices;
 using STOnline.DAL.UnitOfWork;
 using STOnline.Repositoryes;
 using Microsoft.EntityFrameworkCore;
+using STOnline.DAL.Interfaces.Interfaces.IRepositories;
+using STOnline.DAL.Repositoryes.Repositoryes;
+using STOnline.DAL.Interfaces.Interfaces.IServices;
+using STOnline.DAL.Services.Services;
 
 namespace STOnline.WEB
 {
@@ -33,7 +37,6 @@ namespace STOnline.WEB
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -44,6 +47,8 @@ namespace STOnline.WEB
               ));
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IClientService, ClientService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

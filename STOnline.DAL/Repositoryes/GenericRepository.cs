@@ -10,13 +10,14 @@ using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace STOnline.DAL.Repositoryes
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        ApplicationContext _context;
-        DbSet<TEntity> _dbSet;
+        internal ApplicationContext _context;
+        internal DbSet<TEntity> _dbSet;
 
         public GenericRepository(ApplicationContext context)
         {
@@ -29,7 +30,7 @@ namespace STOnline.DAL.Repositoryes
             return _dbSet.AsNoTracking().ToList();
         }
 
-        public TEntity Get(int id)
+        public TEntity GetById(int id)
         {
             return _dbSet.Find(id);
         }

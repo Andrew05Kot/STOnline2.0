@@ -6,7 +6,7 @@ namespace STOnline.DAL.Interfaces.EntityInterfaces
 {
     public interface IEntity
     {
-        Guid Id { get; set; }
+        int Id { get; set; }
         string ToString();
     }
 }

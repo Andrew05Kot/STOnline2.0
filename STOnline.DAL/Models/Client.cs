@@ -1,4 +1,5 @@
-﻿using STOnline.DAL.Interfaces.EntityInterfaces;
+﻿using Newtonsoft.Json;
+using STOnline.DAL.Interfaces.EntityInterfaces;
 using STOnline.DAL.Model;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,8 @@ namespace STOnline.DAL.Models
         [Required]
         public string ClientPassword { get; set; }
         [ForeignKey("ClientId")]
-        public ICollection<Order> Order { get; set; }
+        [NotMapped]
+        public ICollection<Order> Orders { get; set; }
 
 
     }

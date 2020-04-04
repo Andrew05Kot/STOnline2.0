@@ -17,10 +17,10 @@ namespace STOnline.DAL.Models
         public float RepairPrice { get; set; }
         public Order Orders { get; set; }
         [Required]
-        public Guid OrderId { get; set; }
+        public int OrderId { get; set; }
         public Worker Worker { get; set; }
         [Required]
-        public Guid WorkerId { get; set; }
+        public int WorkerId { get; set; }
 
     }
 }
