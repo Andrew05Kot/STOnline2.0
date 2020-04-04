@@ -25,30 +25,51 @@ namespace STOnline.DAL.Repositoryes
             _dbSet = context.Set<TEntity>();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        //public IEnumerable<TEntity> GetAll()
+        //{
+        //    return _dbSet.AsNoTracking().ToList();
+        //}
+
+        //public TEntity GetById(int id)
+        //{
+        //    return _dbSet.Find(id);
+        //}
+
+        //public void Add(TEntity item)
+        //{
+        //    _dbSet.Add(item);
+        //    _context.SaveChanges();
+        //}
+        //public void Update(TEntity item)
+        //{
+        //    _context.Entry(item).State = EntityState.Modified;
+        //    _context.SaveChanges();
+        //}
+        //public void Delete(TEntity item)
+        //{
+        //    _dbSet.Remove(item);
+        //    _context.SaveChanges();
+        //}
+        public IQueryable<TEntity> GetAll()
         {
-            return _dbSet.AsNoTracking().ToList();
+            return _dbSet.AsQueryable();
         }
 
-        public TEntity GetById(int id)
+        public async Task<TEntity> GetById(int id)
         {
-            return _dbSet.Find(id);
+            return await _dbSet.FindAsync(id);
         }
-
-        public void Add(TEntity item)
+        public async Task<TEntity> Add(TEntity entity)
         {
-            _dbSet.Add(item);
-            _context.SaveChanges();
+            return (await _dbSet.AddAsync(entity)).Entity;
         }
-        public void Update(TEntity item)
+        public Task<TEntity> Update(TEntity entity)
         {
-            _context.Entry(item).State = EntityState.Modified;
-            _context.SaveChanges();
+            throw new NotImplementedException();
         }
-        public void Delete(TEntity item)
+        public async Task<TEntity> Delete(TEntity entity)
         {
-            _dbSet.Remove(item);
-            _context.SaveChanges();
+            throw new NotImplementedException();
         }
     }
 }
