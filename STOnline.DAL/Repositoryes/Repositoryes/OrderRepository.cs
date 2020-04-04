@@ -19,9 +19,8 @@ namespace STOnline.Repositoryes
 {
     public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
-        public OrderRepository(IConnectionFactory connectionFactory, ApplicationContext applicationContext) : base(connectionFactory, applicationContext)
+        public OrderRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
-            connectionFactory.SetConnection("hello");
         }
 
     }

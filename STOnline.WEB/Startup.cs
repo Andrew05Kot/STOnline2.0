@@ -28,7 +28,7 @@ namespace STOnline.WEB
         private IConfigurationRoot _confString;
         public Startup(IHostEnvironment hostEnvironment)
         {
-            _confString = new ConfigurationBuilder().SetBasePath(hostEnvironment.ContentRootPath).AddJsonFile("dbconnection.json").Build();
+           _confString = new ConfigurationBuilder().SetBasePath(hostEnvironment.ContentRootPath).AddJsonFile("appsettings.json").Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -39,13 +39,9 @@ namespace STOnline.WEB
             services.AddControllers();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
-            services.AddDbContext<ApplicationContext>(options =>
-            {
-                options
-                    .UseSqlServer(_confString.GetConnectionString("DefaultConnection"),
-                        assembly =>
-                            assembly.MigrationsAssembly("STOnline.Migrations"));
-            });
+            services.AddDbContext<ApplicationContext>(options => options
+                    .UseSqlServer(_confString.GetConnectionString("DefaultConnection")
+              ));
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IOrderService, OrderService>();
         }

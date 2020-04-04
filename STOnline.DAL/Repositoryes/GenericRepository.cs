@@ -18,7 +18,7 @@ namespace STOnline.DAL.Repositoryes
         ApplicationContext _context;
         DbSet<TEntity> _dbSet;
 
-        public GenericRepository(IConnectionFactory connectionFactory, ApplicationContext context)
+        public GenericRepository(ApplicationContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
