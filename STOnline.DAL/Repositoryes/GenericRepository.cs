@@ -24,32 +24,6 @@ namespace STOnline.DAL.Repositoryes
             _context = context;
             _dbSet = context.Set<TEntity>();
         }
-
-        //public IEnumerable<TEntity> GetAll()
-        //{
-        //    return _dbSet.AsNoTracking().ToList();
-        //}
-
-        //public TEntity GetById(int id)
-        //{
-        //    return _dbSet.Find(id);
-        //}
-
-        //public void Add(TEntity item)
-        //{
-        //    _dbSet.Add(item);
-        //    _context.SaveChanges();
-        //}
-        //public void Update(TEntity item)
-        //{
-        //    _context.Entry(item).State = EntityState.Modified;
-        //    _context.SaveChanges();
-        //}
-        //public void Delete(TEntity item)
-        //{
-        //    _dbSet.Remove(item);
-        //    _context.SaveChanges();
-        //}
         public IQueryable<TEntity> GetAll()
         {
             return _dbSet.AsQueryable();
@@ -67,7 +41,7 @@ namespace STOnline.DAL.Repositoryes
         {
             throw new NotImplementedException();
         }
-        public async Task<TEntity> Delete(TEntity entity)
+        public Task<TEntity> Delete(TEntity entity)
         {
             throw new NotImplementedException();
         }
