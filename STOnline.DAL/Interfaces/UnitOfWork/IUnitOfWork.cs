@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using STOnline.DAL.Interfaces.Interfaces;
+﻿using STOnline.DAL.Interfaces.Interfaces;
 using STOnline.DAL.Interfaces.Interfaces.IRepositories;
 using STOnline.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace STOnline.DAL.Interfaces
+namespace STOnline.DAL.Services.UnitOfWork
 {
     public interface IUnitOfWork
     {
-        ICategoryRepository SQLCategoryRepository { get; }
         IOrderRepository SQLOrderRepository { get; }
-        IClientRepository SQLClientRepository { get; }
+        ICategoryRepository SQLCategoryRepository { get; }
+        ICategoryRepository SQLClientRepository { get; }
         IRepairRepository SQLRepairRepository { get; }
-        IWorkerRepository SQLWorkerRepository { get; }
         IWorkerCategoryRepository SQLWorkerCategoryRepository { get; }
+        IWorkerRepository SQLWorkerRepository { get; }
         void Complete();
     }
 }

@@ -46,6 +46,5 @@ namespace STOnline.WEB.Controllers
             _sqlClientService.DeleteClient(client);
 
         }
-
     }
 }

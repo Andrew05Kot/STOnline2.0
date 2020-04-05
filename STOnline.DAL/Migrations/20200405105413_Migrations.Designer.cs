@@ -10,8 +10,8 @@ using STOnline.DAL.DBContext;
 namespace STOnline.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20200404193142_Migration")]
-    partial class Migration
+    [Migration("20200405105413_Migrations")]
+    partial class Migrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

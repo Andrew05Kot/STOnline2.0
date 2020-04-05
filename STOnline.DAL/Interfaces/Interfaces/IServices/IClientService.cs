@@ -9,8 +9,8 @@ namespace STOnline.DAL.Interfaces.Interfaces.IServices
     {
         IEnumerable<Client> GetAllClients();
         Client GetClientById(int Id);
-        void AddClient(Client order);
-        void UpdateClient(Client order);
-        void DeleteClient(Client order);
+        void AddClient(Client client);
+        void UpdateClient(Client client);
+        void DeleteClient(Client client);
     }
 }

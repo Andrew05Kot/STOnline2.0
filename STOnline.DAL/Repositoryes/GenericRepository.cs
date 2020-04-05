@@ -29,9 +29,9 @@ namespace STOnline.DAL.Repositoryes
             return _dbSet.AsQueryable();
         }
 
-        public async Task<TEntity> GetById(int id)
+        public TEntity GetById(int id)
         {
-            return await _dbSet.FindAsync(id);
+            return  _dbSet.Find(id);
         }
         public async Task<TEntity> Add(TEntity entity)
         {

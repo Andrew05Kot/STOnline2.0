@@ -24,6 +24,7 @@ using STOnline.DAL.Interfaces.Interfaces.IRepositories;
 using STOnline.DAL.Repositoryes.Repositoryes;
 using STOnline.DAL.Interfaces.Interfaces.IServices;
 using STOnline.DAL.Services.Services;
+using STOnline.DAL.Interfaces.Interfaces;
 
 namespace STOnline.WEB
 {
@@ -49,6 +50,14 @@ namespace STOnline.WEB
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<IClientService, ClientService>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IRepairRepository, RepairRepository>();
+            services.AddTransient<IRepairService, RepairService>();
+            services.AddTransient<IWorkerRepository, WorkerRepository>();
+            services.AddTransient<IWorkerService, WorkerService>();
+            services.AddTransient<IWorkerCategoryRepository, WorkerCategoryRepository>();
+            services.AddTransient<IWorkerCategoryService, WorkerCategoryService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

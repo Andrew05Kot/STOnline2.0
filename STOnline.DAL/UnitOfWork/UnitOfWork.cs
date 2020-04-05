@@ -1,4 +1,5 @@
 ﻿using STOnline.DAL.Interfaces;
+using STOnline.DAL.Interfaces.Interfaces;
 using STOnline.DAL.Interfaces.Interfaces.IRepositories;
 using STOnline.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
 using System;
@@ -9,19 +10,33 @@ namespace STOnline.DAL.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly IOrderRepository _sqlOrderRepository;
+        private readonly ICategoryRepository _sqlCategoryRepository;
         private readonly IClientRepository _sqlClientRepository;
-        public UnitOfWork(IOrderRepository sqlOrderRepository, IClientRepository sqlClientRepository)
+        private readonly IOrderRepository _sqlOrderRepository;
+        private readonly IRepairRepository _sqlRepairRepository;
+        private readonly IWorkerRepository _sqlWorkerRepository;
+        private readonly IWorkerCategoryRepository _sqlWorkerCategoryRepository;
+        
+        public UnitOfWork(ICategoryRepository sqlCategoryRepository,
+            IClientRepository sqlClientRepository,
+            IOrderRepository sqlOrderRepository,
+            IRepairRepository sqlRepairRepository,
+            IWorkerRepository sqlWorkerRepository,
+            IWorkerCategoryRepository sqlWorkerCategoryRepository
+            )
         {
-            _sqlOrderRepository = sqlOrderRepository;
+            _sqlCategoryRepository = sqlCategoryRepository;
             _sqlClientRepository = sqlClientRepository;
+            _sqlOrderRepository = sqlOrderRepository;
+            _sqlRepairRepository = sqlRepairRepository;
+            _sqlWorkerRepository = sqlWorkerRepository;
+            _sqlWorkerCategoryRepository = sqlWorkerCategoryRepository;
         }
-
-        public IOrderRepository SQLOrderRepository
+        public ICategoryRepository SQLCategoryRepository
         {
             get
             {
-                return _sqlOrderRepository;
+                return _sqlCategoryRepository;
             }
         }
         public IClientRepository SQLClientRepository
@@ -31,7 +46,34 @@ namespace STOnline.DAL.UnitOfWork
                 return _sqlClientRepository;
             }
         }
-
+        public IOrderRepository SQLOrderRepository
+        {
+            get
+            {
+                return _sqlOrderRepository;
+            }
+        }
+        public IRepairRepository SQLRepairRepository
+        {
+            get
+            {
+                return _sqlRepairRepository;
+            }
+        }
+        public IWorkerRepository SQLWorkerRepository
+        {
+            get
+            {
+                return _sqlWorkerRepository;
+            }
+        }
+        public IWorkerCategoryRepository SQLWorkerCategoryRepository
+        {
+            get
+            {
+                return _sqlWorkerCategoryRepository;
+            }
+        }
         public void Complete()
         {
             throw new NotImplementedException();
