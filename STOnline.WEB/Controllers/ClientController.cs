@@ -8,10 +8,10 @@ using STOnline.DAL.Models;
 
 namespace STOnline.WEB.Controllers
 {
-    public class OrderController : ControllerBase
+    public class ClientController : ControllerBase
     {
         IClientService _sqlClientService;
-        public OrderController(IClientService sqlClientService)
+        public ClientController(IClientService sqlClientService)
         {
             _sqlClientService = sqlClientService;
         }
@@ -23,7 +23,7 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Client/{Id}")]
         [HttpGet]
-        public Client Get(int Id)
+        public Task<Client> Get(int Id)
         {
             return _sqlClientService.GetClientById(Id);
         }

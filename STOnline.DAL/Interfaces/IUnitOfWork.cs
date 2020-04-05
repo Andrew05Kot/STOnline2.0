@@ -9,12 +9,12 @@ namespace STOnline.DAL.Interfaces
 {
     public interface IUnitOfWork
     {
-        ICategoryRepository SQLCategoryRepository { get; }
         IOrderRepository SQLOrderRepository { get; }
+        ICategoryRepository SQLCategoryRepository { get; }
         IClientRepository SQLClientRepository { get; }
         IRepairRepository SQLRepairRepository { get; }
-        IWorkerRepository SQLWorkerRepository { get; }
         IWorkerCategoryRepository SQLWorkerCategoryRepository { get; }
+        IWorkerRepository SQLWorkerRepository { get; }
         void Complete();
     }
 }

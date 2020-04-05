@@ -25,6 +25,7 @@ using STOnline.DAL.Repositoryes.Repositoryes;
 using STOnline.DAL.Interfaces.Interfaces.IServices;
 using STOnline.DAL.Services.Services;
 using STOnline.DAL.Interfaces.Interfaces;
+using STOnline.WEB.Controllers;
 
 namespace STOnline.WEB
 {
@@ -78,6 +79,8 @@ namespace STOnline.WEB
             {
                 endpoints.MapControllers();
             });
+           
         }
     }
 }
+

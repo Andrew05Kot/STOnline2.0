@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace STOnline.DAL.Repositoryes
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
     {
         internal ApplicationContext _context;
         internal DbSet<TEntity> _dbSet;
@@ -29,21 +29,28 @@ namespace STOnline.DAL.Repositoryes
             return _dbSet.AsQueryable();
         }
 
-        public TEntity GetById(int id)
-        {
-            return  _dbSet.Find(id);
+        public async Task<TEntity> GetById(int id)
+        { 
+            return await _dbSet.FindAsync(id);
         }
-        public async Task<TEntity> Add(TEntity entity)
+        public void Add(TEntity newEntity)
         {
-            return (await _dbSet.AddAsync(entity)).Entity;
+            _dbSet.Add(newEntity);
+            _context.SaveChanges();
         }
-        public Task<TEntity> Update(TEntity entity)
+        public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
-        public Task<TEntity> Delete(TEntity entity)
+        public void Delete(TEntity entity)
         {
-            throw new NotImplementedException();
+             _dbSet.Remove(entity);
+            _context.SaveChanges();
+        }
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
         }
     }
 }
