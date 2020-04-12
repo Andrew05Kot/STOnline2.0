@@ -4,6 +4,7 @@ using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace STOnline.DAL.Services.Services
 {
@@ -20,22 +21,22 @@ namespace STOnline.DAL.Services.Services
             return _SqlsqlunitOfWork.SQLWorkerRepository.GetAll();
         }
 
-        public Worker GetWorkerById(int Id)
+        public async Task<Worker> GetWorkerById(int Id)
         {
-            return new Worker();
+            return await _SqlsqlunitOfWork.SQLWorkerRepository.GetById(Id);
         }
-        public void AddWorker(Worker worker)
+        public async Task<Worker> AddWorker(Worker worker)
         {
-            _SqlsqlunitOfWork.SQLWorkerRepository.Add(worker);
+            return await _SqlsqlunitOfWork.SQLWorkerRepository.Add(worker);
         }
-        public void DeleteWorker(Worker worker)
+        public async Task<Worker> UpdateWorker(Worker worker, object obj)
         {
-            _SqlsqlunitOfWork.SQLWorkerRepository.Delete(worker);
+            return await _SqlsqlunitOfWork.SQLWorkerRepository.Update(worker, obj);
+        }
+        public async Task<int> DeleteWorker(Worker worker)
+        {
+            return await  _SqlsqlunitOfWork.SQLWorkerRepository.Delete(worker);
         }
 
-        public void UpdateWorker(Worker worker)
-        {
-            _SqlsqlunitOfWork.SQLWorkerRepository.Update(worker);
-        }
     }
 }

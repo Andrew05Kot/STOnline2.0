@@ -23,27 +23,27 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Repair/{Id}")]
         [HttpGet]
-        public Repair Get(int Id)
+        public async Task<Repair> Get(int Id)
         {
-            return _sqlRepairService.GetRepairById(Id);
+            return await _sqlRepairService.GetRepairById(Id);
         }
         [Route("Repairs/repair")]
         [HttpPost]
-        public void Post([FromBody]Repair repair)
+        public async Task<Repair> Post([FromBody]Repair repair)
         {
-            _sqlRepairService.AddRepair(repair);
+            return await _sqlRepairService.AddRepair(repair);
         }
         [Route("Repair/repair")]
         [HttpPut]
-        public void Put([FromBody]Repair repair)
+        public async Task<Repair> Put([FromBody]Repair repair, object obj)
         {
-            _sqlRepairService.UpdateRepair(repair);
+            return await _sqlRepairService.UpdateRepair(repair, obj);
         }
         [Route("Repair/delete/{Id}")]
         [HttpDelete]
-        public void Delete(Repair repair)
+        public async Task<int> Delete(Repair repair)
         {
-            _sqlRepairService.DeleteRepair(repair);
+            return await _sqlRepairService.DeleteRepair(repair);
 
         }
     }

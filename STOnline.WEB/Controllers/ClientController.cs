@@ -23,27 +23,27 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Client/{Id}")]
         [HttpGet]
-        public Task<Client> Get(int Id)
+        public async Task<Client> Get(int Id)
         {
-            return _sqlClientService.GetClientById(Id);
+            return await _sqlClientService.GetClientById(Id);
         }
         [Route("Clients/client")]
         [HttpPost]
-        public void Post([FromBody]Client client)
+        public async Task<Client> Post([FromBody]Client client)
         {
-            _sqlClientService.AddClient(client);
+            return await _sqlClientService.AddClient(client);
         }
         [Route("Client/client")]
         [HttpPut]
-        public void Put([FromBody]Client client)
+        public async Task<Client> Put([FromBody]Client client, object key)
         {
-            _sqlClientService.UpdateClient(client);
+            return await _sqlClientService.UpdateClient(client, key);
         }
         [Route("Client/delete/{Id}")]
         [HttpDelete]
-        public void Delete(Client client)
+        public async Task<int> Delete(Client client)
         {
-            _sqlClientService.DeleteClient(client);
+            return await _sqlClientService.DeleteClient(client);
 
         }
     }

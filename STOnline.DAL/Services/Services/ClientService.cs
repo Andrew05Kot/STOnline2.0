@@ -26,18 +26,18 @@ namespace STOnline.DAL.Services.Services
         {
             return await _SqlsqlunitOfWork.SQLClientRepository.GetById(id);
         }
-        public void AddClient(Client client)
+        public async Task<Client> AddClient(Client client)
         {
-             _SqlsqlunitOfWork.SQLClientRepository.Add(client);
+            return await _SqlsqlunitOfWork.SQLClientRepository.Add(client);
         }
-        public void DeleteClient(Client client)
+        public async Task<Client> UpdateClient(Client client, object obj)
         {
-             _SqlsqlunitOfWork.SQLClientRepository.Delete(client);
+            return await _SqlsqlunitOfWork.SQLClientRepository.Update(client ,obj);
         }
-
-        public void UpdateClient(Client client)
+        public async Task<int> DeleteClient(Client client)
         {
-            _SqlsqlunitOfWork.SQLClientRepository.Update(client);
+            return await _SqlsqlunitOfWork.SQLClientRepository.Delete(client);
         }
+        
     }
 }

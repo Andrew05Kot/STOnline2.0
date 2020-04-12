@@ -23,27 +23,27 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Category/{Id}")]
         [HttpGet]
-        public Category Get(int Id)
+        public async Task<Category> Get(int Id)
         {
-            return _sqlCategoryService.GetCategoryById(Id);
+            return await _sqlCategoryService.GetCategoryById(Id);
         }
         [Route("Categoryes/category")]
         [HttpPost]
-        public void Post([FromBody]Category category)
+        public async Task<Category> Post([FromBody]Category category)
         {
-            _sqlCategoryService.AddCategory(category);
+            return await _sqlCategoryService.AddCategory(category);
         }
         [Route("Category/category")]
         [HttpPut]
-        public void Put([FromBody]Category category)
+        public async Task<Category> Put([FromBody]Category category, object obj)
         {
-            _sqlCategoryService.UpdateCategory(category);
+            return await _sqlCategoryService.UpdateCategory(category, obj);
         }
         [Route("Category/delete/{Id}")]
         [HttpDelete]
-        public void Delete(Category category)
+        public async Task<int> Delete(Category category)
         {
-            _sqlCategoryService.DeleteCategory(category);
+            return await _sqlCategoryService.DeleteCategory(category);
 
         }
     }

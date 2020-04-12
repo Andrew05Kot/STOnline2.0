@@ -4,6 +4,7 @@ using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace STOnline.DAL.Services.Services
 {
@@ -20,22 +21,22 @@ namespace STOnline.DAL.Services.Services
             return _SqlsqlunitOfWork.SQLRepairRepository.GetAll();
         }
 
-        public Repair GetRepairById(int Id)
+        public async Task<Repair> GetRepairById(int Id)
         {
-            return new Repair();
+            return await _SqlsqlunitOfWork.SQLRepairRepository.GetById(Id);
         }
-        public void AddRepair(Repair repair)
+        public async Task<Repair> AddRepair(Repair repair)
         {
-            _SqlsqlunitOfWork.SQLRepairRepository.Add(repair);
+            return await _SqlsqlunitOfWork.SQLRepairRepository.Add(repair);
         }
-        public void DeleteRepair(Repair repair)
+        public async Task<Repair> UpdateRepair(Repair repair, object obj)
         {
-            _SqlsqlunitOfWork.SQLRepairRepository.Delete(repair);
+            return await _SqlsqlunitOfWork.SQLRepairRepository.Update(repair, obj);
+        }
+        public async Task<int> DeleteRepair(Repair repair)
+        {
+            return await  _SqlsqlunitOfWork.SQLRepairRepository.Delete(repair);
         }
 
-        public void UpdateRepair(Repair repair)
-        {
-            _SqlsqlunitOfWork.SQLRepairRepository.Update(repair);
-        }
     }
 }

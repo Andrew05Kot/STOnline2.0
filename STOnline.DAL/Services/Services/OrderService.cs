@@ -4,6 +4,7 @@ using STOnline.DAL.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace STOnline.DAL.Services.SQLServices
 {
@@ -20,23 +21,22 @@ namespace STOnline.DAL.Services.SQLServices
             return _SqlsqlunitOfWork.SQLOrderRepository.GetAll();
         }
 
-        public Order GetOrderById(int Id)
+        public async Task<Order> GetOrderById(int Id)
         {
-            //return _SqlsqlunitOfWork.SQLOrderRepository.GetById(Id);
-            return new Order();
+            return await _SqlsqlunitOfWork.SQLOrderRepository.GetById(Id);
         }
-        public void AddOrder(Order order)
+        public async Task<Order> AddOrder(Order order)
         {
-            _SqlsqlunitOfWork.SQLOrderRepository.Add(order);
+            return await _SqlsqlunitOfWork.SQLOrderRepository.Add(order);
         }
-        public void DeleteOrder(Order order)
+        public async Task<Order> UpdateOrder(Order order, object obj)
         {
-            _SqlsqlunitOfWork.SQLOrderRepository.Delete(order);
+            return await _SqlsqlunitOfWork.SQLOrderRepository.Update(order, obj);
+        }
+        public async Task<int> DeleteOrder(Order order)
+        {
+            return await _SqlsqlunitOfWork.SQLOrderRepository.Delete(order);
         }
 
-        public void UpdateOrder(Order order)
-        {
-            _SqlsqlunitOfWork.SQLOrderRepository.Update(order);
-        }
     }
 }

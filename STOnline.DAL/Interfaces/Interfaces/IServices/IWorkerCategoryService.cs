@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace STOnline.DAL.Interfaces.Interfaces.IServices
 {
     public interface IWorkerCategoryService
     {
         IEnumerable<WorkerCategory> GetAllWorkerCategoryes();
-        WorkerCategory GetWorkerCategoryById(int Id);
-        void AddWorkerCategory(WorkerCategory workerCategory);
-        void UpdateWorkerCategory(WorkerCategory workerCategory);
-        void DeleteWorkerCategory(WorkerCategory workerCategory);
+        Task<WorkerCategory> GetWorkerCategoryById(int Id);
+        Task<WorkerCategory> AddWorkerCategory(WorkerCategory workerCategory);
+        Task<WorkerCategory> UpdateWorkerCategory(WorkerCategory workerCategory, object obj);
+        Task<int> DeleteWorkerCategory(WorkerCategory workerCategory);
     }
 }

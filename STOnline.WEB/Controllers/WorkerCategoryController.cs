@@ -23,27 +23,27 @@ namespace STOnline.WEB.Controllers
         }
         [Route("WorkerCategory/{Id}")]
         [HttpGet]
-        public WorkerCategory Get(int Id)
+        public async Task<WorkerCategory> Get(int Id)
         {
-            return _sqlWorkerCategoryService.GetWorkerCategoryById(Id);
+            return await _sqlWorkerCategoryService.GetWorkerCategoryById(Id);
         }
         [Route("WorkerCategoryes/workerCategory")]
         [HttpPost]
-        public void Post([FromBody]WorkerCategory workerCategory)
+        public async Task<WorkerCategory> Post([FromBody]WorkerCategory workerCategory)
         {
-            _sqlWorkerCategoryService.AddWorkerCategory(workerCategory);
+            return await _sqlWorkerCategoryService.AddWorkerCategory(workerCategory);
         }
         [Route("WorkeCategoryr/workerCategory")]
         [HttpPut]
-        public void Put([FromBody]WorkerCategory workerCategory)
+        public async Task<WorkerCategory> Put([FromBody]WorkerCategory workerCategory, object obj)
         {
-            _sqlWorkerCategoryService.UpdateWorkerCategory(workerCategory);
+            return await _sqlWorkerCategoryService.UpdateWorkerCategory(workerCategory, obj);
         }
         [Route("WorkerCategory/delete/{Id}")]
         [HttpDelete]
-        public void Delete(WorkerCategory workerCategory)
+        public async Task<int> Delete(WorkerCategory workerCategory)
         {
-            _sqlWorkerCategoryService.DeleteWorkerCategory(workerCategory);
+           return await _sqlWorkerCategoryService.DeleteWorkerCategory(workerCategory);
 
         }
     }

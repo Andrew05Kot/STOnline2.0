@@ -10,9 +10,9 @@ namespace STOnline.DAL.Interfaces.EntityInterfaces
     {
         IQueryable<TEntity> GetAll();
         Task<TEntity> GetById(int id);
-        void Add(TEntity entity);
-        void Update(TEntity entity);
-        void Delete(TEntity entity);
+        Task<TEntity> Add(TEntity entity);
+        Task<TEntity> Update(TEntity entity, object key);
+        Task<int> Delete(TEntity entity);
         Task<int> SaveChangesAsync();
     }
 }

@@ -4,6 +4,7 @@ using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace STOnline.DAL.Services.Services
 {
@@ -20,22 +21,22 @@ namespace STOnline.DAL.Services.Services
             return _SqlsqlunitOfWork.SQLCategoryRepository.GetAll();
         }
 
-        public Category GetCategoryById(int Id)
+        public async Task<Category> GetCategoryById(int id)
         {
-            return new Category();
+            return await _SqlsqlunitOfWork.SQLCategoryRepository.GetById(id);
         }
-        public void AddCategory(Category category)
+        public async Task<Category> AddCategory(Category category)
         {
-            _SqlsqlunitOfWork.SQLCategoryRepository.Add(category);
+            return await _SqlsqlunitOfWork.SQLCategoryRepository.Add(category);
         }
-        public void DeleteCategory(Category category)
+        public async Task<int> DeleteCategory(Category category)
         {
-            _SqlsqlunitOfWork.SQLCategoryRepository.Delete(category);
+            return await _SqlsqlunitOfWork.SQLCategoryRepository.Delete(category);
         }
 
-        public void UpdateCategory(Category category)
+        public async Task<Category> UpdateCategory(Category category, object key)
         {
-            _SqlsqlunitOfWork.SQLCategoryRepository.Update(category);
+            return await _SqlsqlunitOfWork.SQLCategoryRepository.Update(category, key);
         }
     }
 }

@@ -33,20 +33,28 @@ namespace STOnline.DAL.Repositoryes
         { 
             return await _dbSet.FindAsync(id);
         }
-        public void Add(TEntity newEntity)
+        public async Task<TEntity> Add(TEntity newEntity)
         {
             _dbSet.Add(newEntity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return newEntity;
         }
-        public void Update(TEntity entity)
+        public async Task<TEntity> Update(TEntity entity, object key)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            _context.SaveChanges();
+            if(entity == null)
+                return null;
+            TEntity exist = _dbSet.Find(key);
+            if (exist != null)
+            {
+                _context.Entry(exist).CurrentValues.SetValues(entity);
+                await _context.SaveChangesAsync();
+            }
+            return exist;
         }
-        public void Delete(TEntity entity)
+        public async Task<int> Delete(TEntity entity)
         {
-             _dbSet.Remove(entity);
-            _context.SaveChanges();
+            _dbSet.Remove(entity);
+            return await _context.SaveChangesAsync();
         }
         public async Task<int> SaveChangesAsync()
         {

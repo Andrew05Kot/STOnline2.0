@@ -23,27 +23,27 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Worker/{Id}")]
         [HttpGet]
-        public Worker Get(int Id)
+        public async Task<Worker> Get(int Id)
         {
-            return _sqlWorkerService.GetWorkerById(Id);
+            return await _sqlWorkerService.GetWorkerById(Id);
         }
         [Route("Workers/worker")]
         [HttpPost]
-        public void Post([FromBody]Worker worker)
+        public async Task<Worker> Post([FromBody]Worker worker)
         {
-            _sqlWorkerService.AddWorker(worker);
+            return await _sqlWorkerService.AddWorker(worker);
         }
         [Route("Worker/worker")]
         [HttpPut]
-        public void Put([FromBody]Worker worker)
+        public async Task<Worker> Put([FromBody]Worker worker, object obj)
         {
-            _sqlWorkerService.UpdateWorker(worker);
+            return await  _sqlWorkerService.UpdateWorker(worker, obj);
         }
         [Route("Worker/delete/{Id}")]
         [HttpDelete]
-        public void Delete(Worker worker)
+        public async Task<int> Delete(Worker worker)
         {
-            _sqlWorkerService.DeleteWorker(worker);
+            return await _sqlWorkerService.DeleteWorker(worker);
 
         }
     }

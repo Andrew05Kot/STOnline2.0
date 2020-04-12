@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace STOnline.DAL.Interfaces.Interfaces.IServices
 {
     public interface ICategoryService
     {
         IEnumerable<Category> GetAllCategoryes();
-        Category GetCategoryById(int Id);
-        void AddCategory(Category category);
-        void UpdateCategory(Category category);
-        void DeleteCategory(Category category);
+        Task<Category> GetCategoryById(int Id);
+        Task<Category> AddCategory(Category category);
+        Task<Category> UpdateCategory(Category category, object key);
+        Task<int> DeleteCategory(Category category);
     }
 }

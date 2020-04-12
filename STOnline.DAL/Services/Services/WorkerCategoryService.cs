@@ -4,6 +4,7 @@ using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace STOnline.DAL.Services.Services
 {
@@ -20,22 +21,22 @@ namespace STOnline.DAL.Services.Services
             return _SqlsqlunitOfWork.SQLWorkerCategoryRepository.GetAll();
         }
 
-        public WorkerCategory GetWorkerCategoryById(int Id)
+        public async Task<WorkerCategory> GetWorkerCategoryById(int Id)
         {
-            return new WorkerCategory();
+            return await _SqlsqlunitOfWork.SQLWorkerCategoryRepository.GetById(Id);
         }
-        public void AddWorkerCategory(WorkerCategory workerCategory)
+        public async Task<WorkerCategory> AddWorkerCategory(WorkerCategory workerCategory)
         {
-            _SqlsqlunitOfWork.SQLWorkerCategoryRepository.Add(workerCategory);
+            return await _SqlsqlunitOfWork.SQLWorkerCategoryRepository.Add(workerCategory);
         }
-        public void DeleteWorkerCategory(WorkerCategory workerCategory)
+        public async Task<WorkerCategory> UpdateWorkerCategory(WorkerCategory workerCategory, object obj)
         {
-            _SqlsqlunitOfWork.SQLWorkerCategoryRepository.Delete(workerCategory);
+            return await _SqlsqlunitOfWork.SQLWorkerCategoryRepository.Update(workerCategory, obj);
+        }
+        public async Task<int> DeleteWorkerCategory(WorkerCategory workerCategory)
+        {
+            return await _SqlsqlunitOfWork.SQLWorkerCategoryRepository.Delete(workerCategory);
         }
 
-        public void UpdateWorkerCategory(WorkerCategory workerCategory)
-        {
-            _SqlsqlunitOfWork.SQLWorkerCategoryRepository.Update(workerCategory);
-        }
     }
 }

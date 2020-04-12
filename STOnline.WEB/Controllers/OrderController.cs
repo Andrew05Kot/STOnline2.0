@@ -27,27 +27,27 @@ namespace STOnline.Controllers
         }
         [Route("Order/{Id}")]
         [HttpGet]
-        public Order Get(int Id)
+        public async Task<Order> Get(int Id)
         {
-            return _sqlOrderService.GetOrderById(Id);
+            return await _sqlOrderService.GetOrderById(Id);
         }
         [Route("Orders/order")]
         [HttpPost]
-        public void Post([FromBody]Order order)
+        public async Task<Order> Post([FromBody]Order order)
         {
-            _sqlOrderService.AddOrder(order);
+            return await _sqlOrderService.AddOrder(order);
         }
         [Route("Order/order")]
         [HttpPut]
-        public void Put([FromBody]Order order)
+        public async Task<Order> Put([FromBody]Order order, object obj)
         {
-            _sqlOrderService.UpdateOrder(order);
+            return await _sqlOrderService.UpdateOrder(order, obj);
         }
         [Route("Order/delete/{Id}")]
         [HttpDelete]
-        public void Delete(Order order)
+        public async Task<int> Delete(Order order)
         {
-            _sqlOrderService.DeleteOrder(order);
+            return await _sqlOrderService.DeleteOrder(order);
 
         }
 
