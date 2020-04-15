@@ -16,9 +16,9 @@ namespace STOnline.DAL.Services.Services
             _SqlsqlunitOfWork = sqlsqlunitOfWork;
         }
 
-        public IEnumerable<Repair> GetAllRepairs()
+        public async Task<IEnumerable<Repair>> GetAllRepairs()
         {
-            return _SqlsqlunitOfWork.SQLRepairRepository.GetAll();
+            return await _SqlsqlunitOfWork.SQLRepairRepository.GetAll();
         }
 
         public async Task<Repair> GetRepairById(int Id)

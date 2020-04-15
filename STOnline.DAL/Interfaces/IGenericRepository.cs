@@ -8,7 +8,7 @@ namespace STOnline.DAL.Interfaces.EntityInterfaces
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        IQueryable<TEntity> GetAll();
+        Task<IQueryable<TEntity>> GetAll();
         Task<TEntity> GetById(int id);
         Task<TEntity> Add(TEntity entity);
         Task<TEntity> Update(TEntity entity, object key);

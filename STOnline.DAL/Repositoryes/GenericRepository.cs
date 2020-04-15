@@ -24,9 +24,10 @@ namespace STOnline.DAL.Repositoryes
             _context = context;
             _dbSet = context.Set<TEntity>();
         }
-        public IQueryable<TEntity> GetAll()
+        public async Task<IQueryable<TEntity>> GetAll()
         {
-            return _dbSet.AsQueryable();
+            List<TEntity> list = await _dbSet.ToListAsync();
+            return list.AsQueryable();
         }
 
         public async Task<TEntity> GetById(int id)

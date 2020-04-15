@@ -17,9 +17,9 @@ namespace STOnline.DAL.Services.Services
             _SqlsqlunitOfWork = sqlsqlunitOfWork;
         }
 
-        public IEnumerable<Client> GetAllClients()
+        public async Task<IEnumerable<Client>> GetAllClients()
         {
-            return _SqlsqlunitOfWork.SQLClientRepository.GetAll();
+            return await _SqlsqlunitOfWork.SQLClientRepository.GetAll();
         }
 
         public async Task<Client> GetClientById(int id)

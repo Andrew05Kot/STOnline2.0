@@ -8,7 +8,7 @@ namespace STOnline.DAL.Interfaces.Interfaces.IServices
 {
     public interface ICategoryService
     {
-        IEnumerable<Category> GetAllCategoryes();
+        Task<IEnumerable<Category>> GetAllCategoryes();
         Task<Category> GetCategoryById(int Id);
         Task<Category> AddCategory(Category category);
         Task<Category> UpdateCategory(Category category, object key);

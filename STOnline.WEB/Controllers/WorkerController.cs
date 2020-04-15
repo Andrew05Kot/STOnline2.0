@@ -17,9 +17,9 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Workers")]
         [HttpGet]
-        public IEnumerable<Worker> Get()
+        public async Task<IEnumerable<Worker>> Get()
         {
-            return _sqlWorkerService.GetAllWorkers();
+            return await _sqlWorkerService.GetAllWorkers();
         }
         [Route("Worker/{Id}")]
         [HttpGet]

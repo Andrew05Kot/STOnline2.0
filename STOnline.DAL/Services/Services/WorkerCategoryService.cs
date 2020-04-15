@@ -16,9 +16,9 @@ namespace STOnline.DAL.Services.Services
             _SqlsqlunitOfWork = sqlsqlunitOfWork;
         }
 
-        public IEnumerable<WorkerCategory> GetAllWorkerCategoryes()
+        public async Task<IEnumerable<WorkerCategory>> GetAllWorkerCategoryes()
         {
-            return _SqlsqlunitOfWork.SQLWorkerCategoryRepository.GetAll();
+            return await _SqlsqlunitOfWork.SQLWorkerCategoryRepository.GetAll();
         }
 
         public async Task<WorkerCategory> GetWorkerCategoryById(int Id)

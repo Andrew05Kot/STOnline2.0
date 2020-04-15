@@ -21,9 +21,9 @@ namespace STOnline.Controllers
         }
         [Route("Orders")]
         [HttpGet]
-        public IEnumerable<Order> Get()
+        public async Task<IEnumerable<Order>> Get()
         {
-            return _sqlOrderService.GetAllOrders();
+            return await _sqlOrderService.GetAllOrders();
         }
         [Route("Order/{Id}")]
         [HttpGet]

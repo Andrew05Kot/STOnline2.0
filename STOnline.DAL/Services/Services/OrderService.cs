@@ -16,9 +16,9 @@ namespace STOnline.DAL.Services.SQLServices
             _SqlsqlunitOfWork = sqlsqlunitOfWork;
         }
 
-        public IEnumerable<Order> GetAllOrders()
+        public async Task<IEnumerable<Order>> GetAllOrders()
         {
-            return _SqlsqlunitOfWork.SQLOrderRepository.GetAll();
+            return await _SqlsqlunitOfWork.SQLOrderRepository.GetAll();
         }
 
         public async Task<Order> GetOrderById(int Id)

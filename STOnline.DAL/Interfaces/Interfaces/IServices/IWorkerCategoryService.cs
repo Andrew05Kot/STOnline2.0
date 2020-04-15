@@ -8,7 +8,7 @@ namespace STOnline.DAL.Interfaces.Interfaces.IServices
 {
     public interface IWorkerCategoryService
     {
-        IEnumerable<WorkerCategory> GetAllWorkerCategoryes();
+        Task<IEnumerable<WorkerCategory>> GetAllWorkerCategoryes();
         Task<WorkerCategory> GetWorkerCategoryById(int Id);
         Task<WorkerCategory> AddWorkerCategory(WorkerCategory workerCategory);
         Task<WorkerCategory> UpdateWorkerCategory(WorkerCategory workerCategory, object obj);

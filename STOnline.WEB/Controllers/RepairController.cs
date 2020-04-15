@@ -17,9 +17,9 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Repairs")]
         [HttpGet]
-        public IEnumerable<Repair> Get()
+        public async Task<IEnumerable<Repair>> Get()
         {
-            return _sqlRepairService.GetAllRepairs();
+            return await _sqlRepairService.GetAllRepairs();
         }
         [Route("Repair/{Id}")]
         [HttpGet]

@@ -17,9 +17,9 @@ namespace STOnline.WEB.Controllers
         }
         [Route("WorkerCategoryes")]
         [HttpGet]
-        public IEnumerable<WorkerCategory> Get()
+        public async Task<IEnumerable<WorkerCategory>> Get()
         {
-            return _sqlWorkerCategoryService.GetAllWorkerCategoryes();
+            return await _sqlWorkerCategoryService.GetAllWorkerCategoryes();
         }
         [Route("WorkerCategory/{Id}")]
         [HttpGet]

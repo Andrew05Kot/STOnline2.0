@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STOnline.WEB", "STOnline.WE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STOnline.DAL", "STOnline.DAL\STOnline.DAL.csproj", "{AFECBF98-5189-46D9-AE08-B2C73BD43DA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STOnline.Identity", "STOnline.Identity\STOnline.Identity.csproj", "{97CDC281-CCFA-417F-8A96-A0CE151FDF22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AFECBF98-5189-46D9-AE08-B2C73BD43DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFECBF98-5189-46D9-AE08-B2C73BD43DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFECBF98-5189-46D9-AE08-B2C73BD43DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97CDC281-CCFA-417F-8A96-A0CE151FDF22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97CDC281-CCFA-417F-8A96-A0CE151FDF22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97CDC281-CCFA-417F-8A96-A0CE151FDF22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97CDC281-CCFA-417F-8A96-A0CE151FDF22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

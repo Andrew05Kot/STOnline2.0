@@ -8,7 +8,7 @@ namespace STOnline.DAL.Interfaces.Interfaces.IServices
 {
     public interface IWorkerService
     {
-        IEnumerable<Worker> GetAllWorkers();
+        Task<IEnumerable<Worker>> GetAllWorkers();
         Task<Worker> GetWorkerById(int Id);
         Task<Worker> AddWorker(Worker worker);
         Task<Worker> UpdateWorker(Worker worker, object obj);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PagedList;
 using STOnline.DAL.Interfaces.Interfaces.IServices;
 using STOnline.DAL.Models;
 
@@ -15,11 +16,14 @@ namespace STOnline.WEB.Controllers
         {
             _sqlClientService = sqlClientService;
         }
-        [Route("Clients")]
+        [Route("Clients/{page}")]
         [HttpGet]
-        public IEnumerable<Client> Get()
+        public async Task<IEnumerable<Client>> Get(int? page)
         {
-            return _sqlClientService.GetAllClients();
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            var result = await _sqlClientService.GetAllClients();
+            return result.ToPagedList(pageNumber, pageSize);
         }
         [Route("Client/{Id}")]
         [HttpGet]

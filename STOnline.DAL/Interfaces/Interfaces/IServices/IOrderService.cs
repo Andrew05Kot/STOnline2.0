@@ -8,7 +8,7 @@ namespace STOnline.DAL.Interfaces.EntityInterfaces.SQLInterfaces.ISQLServices
 {
     public interface IOrderService
     {
-        IEnumerable<Order> GetAllOrders();
+        Task<IEnumerable<Order>> GetAllOrders();
         Task<Order> GetOrderById(int Id);
         Task<Order> AddOrder(Order order);
         Task<Order> UpdateOrder(Order order, object obj);

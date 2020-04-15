@@ -8,7 +8,7 @@ namespace STOnline.DAL.Interfaces.Interfaces.IServices
 {
     public interface IRepairService
     {
-        IEnumerable<Repair> GetAllRepairs();
+        Task<IEnumerable<Repair>> GetAllRepairs();
         Task<Repair> GetRepairById(int Id);
         Task<Repair> AddRepair(Repair repair);
         Task<Repair> UpdateRepair(Repair repair, object obj);

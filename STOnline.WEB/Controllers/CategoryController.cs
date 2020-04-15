@@ -17,9 +17,9 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Categoryes")]
         [HttpGet]
-        public IEnumerable<Category> Get()
+        public async Task<IEnumerable<Category>> Get()
         {
-            return _sqlCategoryService.GetAllCategoryes();
+            return await _sqlCategoryService.GetAllCategoryes();
         }
         [Route("Category/{Id}")]
         [HttpGet]

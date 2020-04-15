@@ -59,6 +59,8 @@ namespace STOnline.WEB
             services.AddTransient<IWorkerService, WorkerService>();
             services.AddTransient<IWorkerCategoryRepository, WorkerCategoryRepository>();
             services.AddTransient<IWorkerCategoryService, WorkerCategoryService>();
+
+           // services.AddPaging();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
