@@ -42,7 +42,7 @@ namespace STOnline.DAL.Repositoryes
         }
         public async Task<TEntity> Update(TEntity entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
+            _dbSet.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return entity;
         }

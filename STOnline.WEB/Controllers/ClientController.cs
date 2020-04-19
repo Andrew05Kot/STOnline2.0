@@ -19,37 +19,75 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Clients")]
         [HttpGet]
-        public async Task<IEnumerable<ClientDTO>> Get(int? page)
+        public async Task<IActionResult> Get(int? page)
         {
             //int pageSize = 5;
             //int pageNumber = (page ?? 1);
             //var result = await _clientService.GetAllClients();
             //return result.ToPagedList(pageNumber, pageSize);
-            return await _clientService.GetAllClients();
+            try
+            {
+                return Ok(await _clientService.GetAllClients());
+            }
+            catch
+            {
+                return StatusCode(404);
+            }
         }
         [Route("Client/{Id}")]
         [HttpGet]
-        public async Task<ClientDTO> Get(int Id)
+        public async Task<IActionResult> Get(int Id)
         {
-            return await _clientService.GetClientById(Id);
+            try
+            {
+                return Ok(await _clientService.GetClientById(Id));
+            }
+            catch
+            {
+                return StatusCode(404);
+            }
+            
         }
         [Route("Clients/client")]
         [HttpPost]
-        public async Task<Client> Post([FromBody]ClientDTO client)
+        public async Task<IActionResult> Post([FromBody]ClientDTO client)
         {
-            return await _clientService.AddClient(client);
+            try
+            {
+                await _clientService.AddClient(client);
+                return StatusCode(201);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
         }
         [Route("Client/client")]
         [HttpPut]
-        public async Task<Client> Put([FromBody]ClientDTO client)
+        public async Task<IActionResult> Put([FromBody]ClientDTO client)
         {
-            return await _clientService.UpdateClient(client);
+            try
+            {
+                await _clientService.UpdateClient(client);
+                return StatusCode(201);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
         }
         [Route("Client/delete/{Id}")]
         [HttpDelete]
-        public async Task<int> Delete(ClientDTO client)
+        public async Task<IActionResult> Delete(ClientDTO client)
         {
-            return await _clientService.DeleteClient(client);
+            try {
+                await _clientService.DeleteClient(client);
+                return StatusCode(201);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
 
         }
     }
