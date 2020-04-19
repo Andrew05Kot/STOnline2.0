@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,6 +37,7 @@ namespace STOnline.WEB
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddDbContext<ApplicationContext>(options => options
@@ -54,7 +56,7 @@ namespace STOnline.WEB
             services.AddTransient<IWorkerCategoryRepository, WorkerCategoryRepository>();
             services.AddTransient<IWorkerCategoryService, WorkerCategoryService>();
 
-           // services.AddPaging();
+            // services.AddPaging();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
