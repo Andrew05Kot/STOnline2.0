@@ -14,18 +14,12 @@ using Microsoft.Extensions.Logging;
 using STOnline.DAL.DBContext;
 using STOnline.DAL.Infrastructure;
 using STOnline.DAL.Interfaces;
-using STOnline.DAL.Interfaces.EntityInterfaces.SQLInterfaces.ISQLServices;
-using STOnline.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
-using STOnline.DAL.Services.SQLServices;
 using STOnline.DAL.UnitOfWork;
-using STOnline.Repositoryes;
 using Microsoft.EntityFrameworkCore;
+using STOnline.BLL.Interfaces.IServices;
+using STOnline.BLL.Services.Services;
 using STOnline.DAL.Interfaces.Interfaces.IRepositories;
 using STOnline.DAL.Repositoryes.Repositoryes;
-using STOnline.DAL.Interfaces.Interfaces.IServices;
-using STOnline.DAL.Services.Services;
-using STOnline.DAL.Interfaces.Interfaces;
-using STOnline.WEB.Controllers;
 
 namespace STOnline.WEB
 {

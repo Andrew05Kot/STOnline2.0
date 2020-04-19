@@ -16,6 +16,7 @@
   
 
   <ItemGroup>
+    <ProjectReference Include="..\STOnline.BLL\STOnline.BLL.csproj" />
     <ProjectReference Include="..\STOnline.DAL\STOnline.DAL.csproj" />
   </ItemGroup>
 

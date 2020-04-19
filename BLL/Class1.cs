@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IDENTITY
+namespace BLL
 {
     public class Class1
     {

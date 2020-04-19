@@ -3,51 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using STOnline.DAL.Services.SQLServices;
-using STOnline.DAL.Interfaces;
-using STOnline.DAL.Models;
-using STOnline.DAL.Repositoryes;
-using STOnline.DAL.Interfaces.EntityInterfaces.SQLInterfaces.ISQLServices;
 using STOnline.DAL.Model;
+using STOnline.BLL.Interfaces.IServices;
 
 namespace STOnline.Controllers
 {
     public class OrderController : ControllerBase
     {
-        IOrderService _sqlOrderService;
-        public OrderController(IOrderService sqlOrderService)
+        IOrderService _orderService;
+        public OrderController(IOrderService orderService)
         {
-            _sqlOrderService = sqlOrderService;
+            _orderService = orderService;
         }
         [Route("Orders")]
         [HttpGet]
         public async Task<IEnumerable<Order>> Get()
         {
-            return await _sqlOrderService.GetAllOrders();
+            return await _orderService.GetAllOrders();
         }
         [Route("Order/{Id}")]
         [HttpGet]
         public async Task<Order> Get(int Id)
         {
-            return await _sqlOrderService.GetOrderById(Id);
+            return await _orderService.GetOrderById(Id);
         }
         [Route("Orders/order")]
         [HttpPost]
         public async Task<Order> Post([FromBody]Order order)
         {
-            return await _sqlOrderService.AddOrder(order);
+            return await _orderService.AddOrder(order);
         }
         [Route("Order/order")]
         [HttpPut]
         public async Task<Order> Put([FromBody]Order order, object obj)
         {
-            return await _sqlOrderService.UpdateOrder(order, obj);
+            return await _orderService.UpdateOrder(order, obj);
         }
         [Route("Order/delete/{Id}")]
         [HttpDelete]
         public async Task<int> Delete(Order order)
         {
-            return await _sqlOrderService.DeleteOrder(order);
+            return await _orderService.DeleteOrder(order);
 
         }
 

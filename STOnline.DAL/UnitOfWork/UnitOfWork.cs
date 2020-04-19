@@ -1,7 +1,6 @@
 ﻿using STOnline.DAL.Interfaces;
 using STOnline.DAL.Interfaces.Interfaces;
 using STOnline.DAL.Interfaces.Interfaces.IRepositories;
-using STOnline.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,68 +9,68 @@ namespace STOnline.DAL.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ICategoryRepository _sqlCategoryRepository;
-        private readonly IClientRepository _sqlClientRepository;
-        private readonly IOrderRepository _sqlOrderRepository;
-        private readonly IRepairRepository _sqlRepairRepository;
-        private readonly IWorkerRepository _sqlWorkerRepository;
-        private readonly IWorkerCategoryRepository _sqlWorkerCategoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly IClientRepository _clientRepository;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IRepairRepository _repairRepository;
+        private readonly IWorkerRepository _workerRepository;
+        private readonly IWorkerCategoryRepository _workerCategoryRepository;
         
-        public UnitOfWork(ICategoryRepository sqlCategoryRepository,
-            IClientRepository sqlClientRepository,
-            IOrderRepository sqlOrderRepository,
-            IRepairRepository sqlRepairRepository,
-            IWorkerRepository sqlWorkerRepository,
-            IWorkerCategoryRepository sqlWorkerCategoryRepository
+        public UnitOfWork(ICategoryRepository categoryRepository,
+            IClientRepository clientRepository,
+            IOrderRepository orderRepository,
+            IRepairRepository repairRepository,
+            IWorkerRepository workerRepository,
+            IWorkerCategoryRepository workerCategoryRepository
             )
         {
-            _sqlCategoryRepository = sqlCategoryRepository;
-            _sqlClientRepository = sqlClientRepository;
-            _sqlOrderRepository = sqlOrderRepository;
-            _sqlRepairRepository = sqlRepairRepository;
-            _sqlWorkerRepository = sqlWorkerRepository;
-            _sqlWorkerCategoryRepository = sqlWorkerCategoryRepository;
+            _categoryRepository = categoryRepository;
+            _clientRepository = clientRepository;
+            _orderRepository = orderRepository;
+            _repairRepository = repairRepository;
+            _workerRepository = workerRepository;
+            _workerCategoryRepository = workerCategoryRepository;
         }
-        public ICategoryRepository SQLCategoryRepository
+        public ICategoryRepository CategoryRepository
         {
             get
             {
-                return _sqlCategoryRepository;
+                return _categoryRepository;
             }
         }
-        public IClientRepository SQLClientRepository
+        public IClientRepository ClientRepository
         {
             get
             {
-                return _sqlClientRepository;
+                return _clientRepository;
             }
         }
-        public IOrderRepository SQLOrderRepository
+        public IOrderRepository OrderRepository
         {
             get
             {
-                return _sqlOrderRepository;
+                return _orderRepository;
             }
         }
-        public IRepairRepository SQLRepairRepository
+        public IRepairRepository RepairRepository
         {
             get
             {
-                return _sqlRepairRepository;
+                return _repairRepository;
             }
         }
-        public IWorkerRepository SQLWorkerRepository
+        public IWorkerRepository WorkerRepository
         {
             get
             {
-                return _sqlWorkerRepository;
+                return _workerRepository;
             }
         }
-        public IWorkerCategoryRepository SQLWorkerCategoryRepository
+        public IWorkerCategoryRepository WorkerCategoryRepository
         {
             get
             {
-                return _sqlWorkerCategoryRepository;
+                return _workerCategoryRepository;
             }
         }
         public void Complete()

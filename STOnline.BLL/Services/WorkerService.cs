@@ -1,41 +1,41 @@
 ﻿using STOnline.DAL.Interfaces;
-using STOnline.DAL.Interfaces.Interfaces.IServices;
 using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using STOnline.BLL.Interfaces.IServices;
 
-namespace STOnline.DAL.Services.Services
+namespace STOnline.BLL.Services.Services
 {
     public class WorkerService : IWorkerService
     {
-        IUnitOfWork _SqlsqlunitOfWork;
-        public WorkerService(IUnitOfWork sqlsqlunitOfWork)
+        IUnitOfWork _unitOfWork;
+        public WorkerService(IUnitOfWork unitOfWork)
         {
-            _SqlsqlunitOfWork = sqlsqlunitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IEnumerable<Worker>> GetAllWorkers()
         {
-            return await _SqlsqlunitOfWork.SQLWorkerRepository.GetAll();
+            return await _unitOfWork.WorkerRepository.GetAll();
         }
 
         public async Task<Worker> GetWorkerById(int Id)
         {
-            return await _SqlsqlunitOfWork.SQLWorkerRepository.GetById(Id);
+            return await _unitOfWork.WorkerRepository.GetById(Id);
         }
         public async Task<Worker> AddWorker(Worker worker)
         {
-            return await _SqlsqlunitOfWork.SQLWorkerRepository.Add(worker);
+            return await _unitOfWork.WorkerRepository.Add(worker);
         }
         public async Task<Worker> UpdateWorker(Worker worker, object obj)
         {
-            return await _SqlsqlunitOfWork.SQLWorkerRepository.Update(worker, obj);
+            return await _unitOfWork.WorkerRepository.Update(worker, obj);
         }
         public async Task<int> DeleteWorker(Worker worker)
         {
-            return await  _SqlsqlunitOfWork.SQLWorkerRepository.Delete(worker);
+            return await  _unitOfWork.WorkerRepository.Delete(worker);
         }
 
     }

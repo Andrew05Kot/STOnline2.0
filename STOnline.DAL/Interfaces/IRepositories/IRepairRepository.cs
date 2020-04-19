@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace STOnline.DAL.Interfaces.Interfaces
+namespace STOnline.DAL.Interfaces.Interfaces.IRepositories
 {
     public interface IRepairRepository : IGenericRepository<Repair>
     {

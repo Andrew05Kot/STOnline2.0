@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace STOnline.DAL.Interfaces.EntityInterfaces.SQLInterfaces.ISQLServices
+namespace STOnline.BLL.Interfaces.IServices
 {
     public interface IOrderService
     {
