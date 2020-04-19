@@ -1,4 +1,6 @@
-﻿using STOnline.BLL.Interfaces.IServices;
+﻿using AutoMapper;
+using STOnline.BLL.DTOs;
+using STOnline.BLL.Interfaces.IServices;
 using STOnline.DAL.Interfaces;
 using STOnline.DAL.Models;
 using System;
@@ -11,31 +13,44 @@ namespace STOnline.BLL.Services.Services
     public class RepairService : IRepairService
     {
         IUnitOfWork _unitOfWork;
-        public RepairService(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+
+        public RepairService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Repair>> GetAllRepairs()
+        public async Task<IEnumerable<RepairDTO>> GetAllRepairs()
         {
-            return await _unitOfWork.RepairRepository.GetAll();
+            var data = await _unitOfWork.RepairRepository.GetAll();
+            List<RepairDTO> transferedToDTO = new List<RepairDTO>();
+            foreach (var repairs in data)
+            {
+                transferedToDTO.Add(_mapper.Map<Repair, RepairDTO>(repairs));
+            }
+            return transferedToDTO;
         }
 
-        public async Task<Repair> GetRepairById(int Id)
+        public async Task<RepairDTO> GetRepairById(int Id)
         {
-            return await _unitOfWork.RepairRepository.GetById(Id);
+            var data = await _unitOfWork.RepairRepository.GetById(Id);
+            return _mapper.Map<Repair, RepairDTO>(data);
         }
-        public async Task<Repair> AddRepair(Repair repair)
+        public async Task<Repair> AddRepair(RepairDTO repair)
         {
-            return await _unitOfWork.RepairRepository.Add(repair);
+            var data = _mapper.Map<RepairDTO, Repair>(repair);
+            return await _unitOfWork.RepairRepository.Add(data);
         }
-        public async Task<Repair> UpdateRepair(Repair repair, object obj)
+        public async Task<Repair> UpdateRepair(RepairDTO repair)
         {
-            return await _unitOfWork.RepairRepository.Update(repair, obj);
+            var data = _mapper.Map<RepairDTO, Repair>(repair);
+            return await _unitOfWork.RepairRepository.Update(data);
         }
-        public async Task<int> DeleteRepair(Repair repair)
+        public async Task<int> DeleteRepair(RepairDTO repair)
         {
-            return await  _unitOfWork.RepairRepository.Delete(repair);
+            var data = _mapper.Map<RepairDTO, Repair>(repair);
+            return await  _unitOfWork.RepairRepository.Delete(data);
         }
 
     }

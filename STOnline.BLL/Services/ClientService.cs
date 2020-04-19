@@ -1,4 +1,6 @@
-﻿using STOnline.BLL.Interfaces.IServices;
+﻿using AutoMapper;
+using STOnline.BLL.DTOs;
+using STOnline.BLL.Interfaces.IServices;
 using STOnline.DAL.Interfaces;
 using STOnline.DAL.Models;
 using System;
@@ -11,31 +13,44 @@ namespace STOnline.BLL.Services.Services
     public class ClientService: IClientService
     {
         IUnitOfWork _unitOfWork;
-        public ClientService(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+
+        public ClientService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Client>> GetAllClients()
+        public async Task<IEnumerable<ClientDTO>> GetAllClients()
         {
-            return await _unitOfWork.ClientRepository.GetAll();
+            var data = await _unitOfWork.ClientRepository.GetAll();
+            List<ClientDTO> transferedToDTO = new List<ClientDTO>();
+            foreach (var clients in data)
+            {
+                transferedToDTO.Add(_mapper.Map<Client, ClientDTO>(clients));
+            }
+            return transferedToDTO;
         }
 
-        public async Task<Client> GetClientById(int id)
+        public async Task<ClientDTO> GetClientById(int id)
         {
-            return await _unitOfWork.ClientRepository.GetById(id);
+            var data = await _unitOfWork.ClientRepository.GetById(id);
+            return _mapper.Map<Client, ClientDTO>(data);
         }
-        public async Task<Client> AddClient(Client client)
+        public async Task<Client> AddClient(ClientDTO client)
         {
-            return await _unitOfWork.ClientRepository.Add(client);
+            var data = _mapper.Map<ClientDTO, Client>(client);
+            return await _unitOfWork.ClientRepository.Add(data);
         }
-        public async Task<Client> UpdateClient(Client client, object obj)
+        public async Task<Client> UpdateClient(ClientDTO client)
         {
-            return await _unitOfWork.ClientRepository.Update(client ,obj);
+            var data = _mapper.Map<ClientDTO, Client>(client);
+            return await _unitOfWork.ClientRepository.Update(data);
         }
-        public async Task<int> DeleteClient(Client client)
+        public async Task<int> DeleteClient(ClientDTO client)
         {
-            return await _unitOfWork.ClientRepository.Delete(client);
+            var data = _mapper.Map<ClientDTO, Client>(client);
+            return await _unitOfWork.ClientRepository.Delete(data);
         }
         
     }

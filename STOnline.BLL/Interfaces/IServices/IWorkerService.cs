@@ -1,4 +1,5 @@
-﻿using STOnline.DAL.Models;
+﻿using STOnline.BLL.DTOs;
+using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,10 @@ namespace STOnline.BLL.Interfaces.IServices
 {
     public interface IWorkerService
     {
-        Task<IEnumerable<Worker>> GetAllWorkers();
-        Task<Worker> GetWorkerById(int Id);
-        Task<Worker> AddWorker(Worker worker);
-        Task<Worker> UpdateWorker(Worker worker, object obj);
-        Task<int> DeleteWorker(Worker worker);
+        Task<IEnumerable<WorkerDTO>> GetAllWorkers();
+        Task<WorkerDTO> GetWorkerById(int Id);
+        Task<Worker> AddWorker(WorkerDTO worker);
+        Task<Worker> UpdateWorker(WorkerDTO worker);
+        Task<int> DeleteWorker(WorkerDTO worker);
     }
 }

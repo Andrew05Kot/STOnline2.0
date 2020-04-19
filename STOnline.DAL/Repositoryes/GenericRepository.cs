@@ -40,17 +40,11 @@ namespace STOnline.DAL.Repositoryes
             await _context.SaveChangesAsync();
             return newEntity;
         }
-        public async Task<TEntity> Update(TEntity entity, object key)
+        public async Task<TEntity> Update(TEntity entity)
         {
-            if(entity == null)
-                return null;
-            TEntity exist = _dbSet.Find(key);
-            if (exist != null)
-            {
-                _context.Entry(exist).CurrentValues.SetValues(entity);
-                await _context.SaveChangesAsync();
-            }
-            return exist;
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return entity;
         }
         public async Task<int> Delete(TEntity entity)
         {

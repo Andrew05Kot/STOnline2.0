@@ -1,4 +1,5 @@
-﻿using STOnline.DAL.Models;
+﻿using STOnline.BLL.DTOs;
+using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,10 @@ namespace STOnline.BLL.Interfaces.IServices
 {
     public interface IRepairService
     {
-        Task<IEnumerable<Repair>> GetAllRepairs();
-        Task<Repair> GetRepairById(int Id);
-        Task<Repair> AddRepair(Repair repair);
-        Task<Repair> UpdateRepair(Repair repair, object obj);
-        Task<int> DeleteRepair(Repair repair);
+        Task<IEnumerable<RepairDTO>> GetAllRepairs();
+        Task<RepairDTO> GetRepairById(int Id);
+        Task<Repair> AddRepair(RepairDTO repair);
+        Task<Repair> UpdateRepair(RepairDTO repair);
+        Task<int> DeleteRepair(RepairDTO repair);
     }
 }

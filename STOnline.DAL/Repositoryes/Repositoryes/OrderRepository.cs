@@ -11,7 +11,7 @@ using STOnline.DAL.Repositoryes;
 using STOnline.DAL.Interfaces;
 using STOnline.DAL.Interfaces.EntityInterfaces;
 using STOnline.DAL.DBContext;
-using STOnline.DAL.Model;
+using STOnline.DAL.Models;
 using Microsoft.Extensions.Configuration;
 using STOnline.DAL.Interfaces.Interfaces.IRepositories;
 

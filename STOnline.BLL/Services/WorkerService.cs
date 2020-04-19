@@ -5,37 +5,52 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using STOnline.BLL.Interfaces.IServices;
+using AutoMapper;
+using STOnline.BLL.DTOs;
 
 namespace STOnline.BLL.Services.Services
 {
     public class WorkerService : IWorkerService
     {
         IUnitOfWork _unitOfWork;
-        public WorkerService(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+
+        public WorkerService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Worker>> GetAllWorkers()
+        public async Task<IEnumerable<WorkerDTO>> GetAllWorkers()
         {
-            return await _unitOfWork.WorkerRepository.GetAll();
+            var data = await _unitOfWork.WorkerRepository.GetAll();
+            List<WorkerDTO> transferedToDTO = new List<WorkerDTO>();
+            foreach (var workers in data)
+            {
+                transferedToDTO.Add(_mapper.Map<Worker, WorkerDTO>(workers));
+            }
+            return transferedToDTO;
         }
 
-        public async Task<Worker> GetWorkerById(int Id)
+        public async Task<WorkerDTO> GetWorkerById(int Id)
         {
-            return await _unitOfWork.WorkerRepository.GetById(Id);
+            var data = await _unitOfWork.WorkerRepository.GetById(Id);
+            return _mapper.Map<Worker, WorkerDTO>(data);
         }
-        public async Task<Worker> AddWorker(Worker worker)
+        public async Task<Worker> AddWorker(WorkerDTO worker)
         {
-            return await _unitOfWork.WorkerRepository.Add(worker);
+            var data = _mapper.Map<WorkerDTO, Worker>(worker);
+            return await _unitOfWork.WorkerRepository.Add(data);
         }
-        public async Task<Worker> UpdateWorker(Worker worker, object obj)
+        public async Task<Worker> UpdateWorker(WorkerDTO worker)
         {
-            return await _unitOfWork.WorkerRepository.Update(worker, obj);
+            var data = _mapper.Map<WorkerDTO, Worker>(worker);
+            return await _unitOfWork.WorkerRepository.Update(data);
         }
-        public async Task<int> DeleteWorker(Worker worker)
+        public async Task<int> DeleteWorker(WorkerDTO worker)
         {
-            return await  _unitOfWork.WorkerRepository.Delete(worker);
+            var data = _mapper.Map<WorkerDTO, Worker>(worker);
+            return await  _unitOfWork.WorkerRepository.Delete(data);
         }
 
     }

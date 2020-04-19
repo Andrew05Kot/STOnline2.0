@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using STOnline.DAL.Interfaces.EntityInterfaces;
-using STOnline.DAL.Model;
 using STOnline.DAL.Models;
 using System;
 using System.Collections;

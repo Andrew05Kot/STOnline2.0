@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using STOnline.DAL.Interfaces.EntityInterfaces;
-using STOnline.DAL.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,7 +14,7 @@ namespace STOnline.DAL.Models
         public string RepairStatus { get; set; }
         [Required]
         public float RepairPrice { get; set; }
-        public Order Orders { get; set; }
+        public Order Order { get; set; }
         [Required]
         public int OrderId { get; set; }
         public Worker Worker { get; set; }

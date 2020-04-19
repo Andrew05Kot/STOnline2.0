@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using STOnline.DAL.Interfaces.EntityInterfaces;
-using STOnline.DAL.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
