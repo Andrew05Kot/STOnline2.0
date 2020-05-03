@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STOnline.Identity", "STOnli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STOnline.BLL", "STOnline.BLL\STOnline.BLL.csproj", "{9282B106-3844-48E5-B0E3-CC43465555ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STOnline.Frontend", "STOnline.Frontend\STOnline.Frontend.csproj", "{25876FF3-C2A0-4625-B075-11E68ED9B534}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{9282B106-3844-48E5-B0E3-CC43465555ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9282B106-3844-48E5-B0E3-CC43465555ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9282B106-3844-48E5-B0E3-CC43465555ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25876FF3-C2A0-4625-B075-11E68ED9B534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25876FF3-C2A0-4625-B075-11E68ED9B534}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25876FF3-C2A0-4625-B075-11E68ED9B534}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25876FF3-C2A0-4625-B075-11E68ED9B534}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

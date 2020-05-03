@@ -15,12 +15,13 @@ namespace STOnline.DAL.Models
         public string WorkerPhoneNumber { get; set; }
         public string WorkerEmail { get; set; }
         public string WorkerPassword { get; set; }
-        [ForeignKey("WorkerId")]
-        [NotMapped]
-        public ICollection<WorkerCategory> WorkerCategories { get; set; }
-        [ForeignKey("WorkerId")]
-        [NotMapped]
+        //[ForeignKey("WorkerId")]
+        //[NotMapped]
+        public ICollection<WorkerCategory> WorkerCategoryes { get; set; }
+        //[ForeignKey("WorkerId")]
+        //[NotMapped]
         public ICollection<Repair> Repairs { get; set; }
+  
 
 
     }

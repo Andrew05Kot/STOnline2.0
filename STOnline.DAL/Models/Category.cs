@@ -11,11 +11,12 @@ namespace STOnline.DAL.Models
     public class Category : BaseEntity
     {
         public string CategoryName { get; set; }
-        [ForeignKey("CategoryId")]
-        [NotMapped]
+        //[ForeignKey("CategoryId")]
+        //[NotMapped]
         public ICollection<Order> Orders { get; set; }
-        [ForeignKey("CategoryId")]
-        [NotMapped]
+        //public WorkerCategory WorkerCategory { get; set; }
+        //[ForeignKey("CategoryId")]
+        //[NotMapped]
         public ICollection<WorkerCategory> WorkerCategories { get; set; }
     }
 }

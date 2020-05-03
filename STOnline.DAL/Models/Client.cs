@@ -15,8 +15,9 @@ namespace STOnline.DAL.Models
         public string ClientPhoneNumber { get; set; }
         public string ClientEmail { get; set; }
         public string ClientPassword { get; set; }
-        [ForeignKey("ClientId")]
-        [NotMapped]
+        //public Order Order { get; set; }
+        //[ForeignKey("ClientId")]
+        //[NotMapped]
         public ICollection<Order> Orders { get; set; }
 
 

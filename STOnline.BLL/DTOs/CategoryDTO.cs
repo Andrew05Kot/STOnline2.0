@@ -13,5 +13,7 @@ namespace STOnline.BLL.DTOs
         public ICollection<Order> Orders { get; set; }
 
         public ICollection<WorkerCategory> WorkerCategories { get; set; }
+        //public Order Order { get; set; }
+        //public WorkerCategory WorkerCategory { get; set; }
     }
 }

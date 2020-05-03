@@ -24,12 +24,31 @@ namespace STOnline.DAL.DBContext
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=ANDREYKOT\SQLEXPRESS;Database=stonline2;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=ANDREYKOT\SQLEXPRESS;Database=stonline3;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Client)
+                .WithMany(c => c.Orders);
+            modelBuilder.Entity<Order>()
+                .HasOne(c => c.Category)
+                .WithMany(o => o.Orders);
+            modelBuilder.Entity<Repair>()
+                .HasOne(r => r.Order)
+                .WithMany(o => o.Repairs);
+            modelBuilder.Entity<Repair>()
+                .HasOne(r => r.Worker)
+                .WithMany(o => o.Repairs);
+            modelBuilder.Entity<WorkerCategory>()
+                .HasOne(w => w.Worker)
+                .WithMany(c => c.WorkerCategoryes);
+            modelBuilder.Entity<WorkerCategory>()
+                .HasOne(w => w.Category)
+                .WithMany(c => c.WorkerCategories);
+
+
         }
 
     }

@@ -8,9 +8,13 @@ namespace STOnline.BLL.DTOs
     public class WorkerCategoryDTO
     {
         public int Id { get; set; }
+        //public Worker Worker { get; set; }
+        //public int WorkerId { get; set; }
+        //public Category Category { get; set; }
+        //public int CategoryId { get; set; }
         public Worker Worker { get; set; }
-        public int WorkerId { get; set; }
+        //public int WorkerId { get; set; }
+        //[NotMapped]
         public Category Category { get; set; }
-        public int CategoryId { get; set; }
     }
 }

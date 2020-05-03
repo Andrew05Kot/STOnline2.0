@@ -7,7 +7,7 @@ using System.Text;
 
 namespace STOnline.BLL.AutoMapping
 {
-    public class AutoMapper: Profile
+    public class AutoMapper : Profile
     {
         public AutoMapper()
         {
