@@ -10,15 +10,13 @@ namespace STOnline.DAL.Models
 {
     public class Repair : BaseEntity
     {
-        [Required]
         public string RepairStatus { get; set; }
-        [Required]
         public float RepairPrice { get; set; }
+        [NotMapped]
         public Order Order { get; set; }
-        [Required]
         public int OrderId { get; set; }
+        [NotMapped]
         public Worker Worker { get; set; }
-        [Required]
         public int WorkerId { get; set; }
 
     }

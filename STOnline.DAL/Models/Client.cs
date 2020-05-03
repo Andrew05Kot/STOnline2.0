@@ -10,15 +10,10 @@ namespace STOnline.DAL.Models
 {
     public class Client : BaseEntity
     {
-        [Required]
         public string ClientLastName { get; set; }
-        [Required]
         public string ClientFirstName { get; set; }
-        [Required]
         public string ClientPhoneNumber { get; set; }
-        [Required]
         public string ClientEmail { get; set; }
-        [Required]
         public string ClientPassword { get; set; }
         [ForeignKey("ClientId")]
         [NotMapped]

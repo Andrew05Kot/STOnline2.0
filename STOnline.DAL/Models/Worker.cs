@@ -10,19 +10,16 @@ namespace STOnline.DAL.Models
 {
     public class Worker : BaseEntity
     {
-        [Required]
         public string WorkeLastName { get; set; }
-        [Required]
         public string WorkerFirstName { get; set; }
-        [Required]
         public string WorkerPhoneNumber { get; set; }
-        [Required]
         public string WorkerEmail { get; set; }
-        [Required]
         public string WorkerPassword { get; set; }
         [ForeignKey("WorkerId")]
+        [NotMapped]
         public ICollection<WorkerCategory> WorkerCategories { get; set; }
         [ForeignKey("WorkerId")]
+        [NotMapped]
         public ICollection<Repair> Repairs { get; set; }
 
 
