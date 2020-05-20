@@ -7,7 +7,7 @@ using System.Text;
 
 namespace STOnline.DAL.Models
 {
-    public class BaseEntity : IEntity
+    public class BaseEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

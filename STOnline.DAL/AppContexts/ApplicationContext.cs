@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using STOnline.DAL.Interfaces.EntityInterfaces;
 using STOnline.DAL.Models;
+using STOnline.DAL.Models.Entities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,13 +11,12 @@ using System.Text;
 
 namespace STOnline.DAL.DBContext
 {
-    public class ApplicationContext: DbContext
+    public class ApplicationContext: IdentityDbContext<User, Role, int>
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Repair> Repairs { get; set; }
-        public DbSet<Worker> Workers { get; set; }
         public DbSet<WorkerCategory> WorkerCategories { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
@@ -24,7 +25,7 @@ namespace STOnline.DAL.DBContext
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=ANDREYKOT\SQLEXPRESS;Database=stonline3;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=ANDREYKOT\SQLEXPRESS;Database=stonline5;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -48,7 +49,7 @@ namespace STOnline.DAL.DBContext
                 .HasOne(w => w.Category)
                 .WithMany(c => c.WorkerCategories);
 
-
+            base.OnModelCreating(modelBuilder);
         }
 
     }

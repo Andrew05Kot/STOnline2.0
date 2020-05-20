@@ -12,19 +12,11 @@ namespace STOnline.DAL.Models
 {
     public class Order : BaseEntity
     {
-        //[NotMapped]
-        //public Client Client { get; set; }
-        //public int ClientId { get; set; }
-        //[NotMapped]
-        //public Category Category { get; set; }
-        //public int CategoryId { get; set; }
         public Client Client { get; set; }
         public Category Category { get; set; }
         public string ModelAuto { get; set; }
         public string AutoNumber { get; set; }
         public DateTime Data { get; set; }
-        //[ForeignKey("OrderId")]
-        //[NotMapped]
         public ICollection<Repair> Repairs { get; set; }
 
     }

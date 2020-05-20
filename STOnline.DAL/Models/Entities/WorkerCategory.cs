@@ -11,11 +11,6 @@ namespace STOnline.DAL.Models
     public class WorkerCategory : BaseEntity
     {
         public Worker Worker { get; set; }
-        //public int WorkerId { get; set; }
-        //[NotMapped]
         public Category Category { get; set; }
-        //public Category Category { get; set; }
-        //public int CategoryId { get; set; }
-
     }
 }

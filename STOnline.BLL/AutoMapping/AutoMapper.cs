@@ -12,14 +12,14 @@ namespace STOnline.BLL.AutoMapping
         public AutoMapper()
         {
             CreateMap<CategoryDTO, Category>();
-            CreateMap<ClientDTO, Client>();
+            //CreateMap<ClientDTO, Client>();
             CreateMap<OrderDTO, Order>();
             CreateMap<RepairDTO, Repair>();
             CreateMap<WorkerDTO, Worker>();
             CreateMap<WorkerCategoryDTO, WorkerCategory>();
 
             CreateMap<Category, CategoryDTO>();
-            CreateMap<Client, ClientDTO>();
+            //CreateMap<Client, ClientDTO>();
             CreateMap<Order, OrderDTO>();
             CreateMap<Repair, RepairDTO>();
             CreateMap<Worker, WorkerDTO>();

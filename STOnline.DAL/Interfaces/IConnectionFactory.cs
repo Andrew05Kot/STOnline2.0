@@ -10,4 +10,4 @@ namespace STOnline.DAL.Interfaces
         IDbConnection GetSqlConnection { get; }
         void SetConnection(string connectionString);
     }
-}цвцв
+}

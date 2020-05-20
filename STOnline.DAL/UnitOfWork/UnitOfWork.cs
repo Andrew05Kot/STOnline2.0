@@ -25,7 +25,7 @@ namespace STOnline.DAL.UnitOfWork
             )
         {
             _categoryRepository = categoryRepository;
-            _clientRepository = clientRepository;
+            ////_clientRepository = clientRepository;
             _orderRepository = orderRepository;
             _repairRepository = repairRepository;
             _workerRepository = workerRepository;

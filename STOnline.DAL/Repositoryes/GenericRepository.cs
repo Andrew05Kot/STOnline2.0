@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace STOnline.DAL.Repositoryes
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         internal ApplicationContext _context;
         internal DbSet<TEntity> _dbSet;

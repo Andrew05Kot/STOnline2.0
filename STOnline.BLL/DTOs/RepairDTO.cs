@@ -8,18 +8,9 @@ namespace STOnline.BLL.DTOs
     public class RepairDTO
     {
         public int Id { get; set; }
-        //public string RepairStatus { get; set; }
-        //public float RepairPrice { get; set; }
-        //public Order Order { get; set; }
-        //public int OrderId { get; set; }
-        //public Worker Worker { get; set; }
-        //public int WorkerId { get; set; }
         public string RepairStatus { get; set; }
         public float RepairPrice { get; set; }
-        //[NotMapped]
-        public Order Order { get; set; }
-        //public int OrderId { get; set; }
-        //[NotMapped]
-        public Worker Worker { get; set; }
+        public OrderDTO Order { get; set; }
+        public WorkerDTO Worker { get; set; }
     }
 }

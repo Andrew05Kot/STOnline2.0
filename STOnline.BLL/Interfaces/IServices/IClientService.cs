@@ -9,10 +9,10 @@ namespace STOnline.BLL.Interfaces.IServices
 {
     public interface IClientService
     {
-        Task<IEnumerable<ClientDTO>> GetAllClients();
-        Task<ClientDTO> GetClientById(int Id);
-        Task<Client> AddClient(ClientDTO client);
-        Task<Client> UpdateClient(ClientDTO client);
-        Task<int> DeleteClient(ClientDTO client);
+        Task<IEnumerable<Client>> GetAllClients();
+        Task<Client> GetClientById(int Id);
+        Task<Client> AddClient(Client client);
+        Task<Client> UpdateClient(Client client);
+        Task<int> DeleteClient(Client client);
     }
 }

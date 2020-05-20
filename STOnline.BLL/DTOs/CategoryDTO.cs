@@ -9,11 +9,8 @@ namespace STOnline.BLL.DTOs
     {
         public int Id { get; set; }
         public string CategoryName { get; set; }
+        public ICollection<OrderDTO> Orders { get; set; }
+        public ICollection<WorkerCategoryDTO> WorkerCategories { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
-
-        public ICollection<WorkerCategory> WorkerCategories { get; set; }
-        //public Order Order { get; set; }
-        //public WorkerCategory WorkerCategory { get; set; }
     }
 }
