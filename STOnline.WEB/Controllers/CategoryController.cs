@@ -28,18 +28,25 @@ namespace STOnline.WEB.Controllers
         [HttpGet]
         public IActionResult GetAll([FromQuery]CategoryQueryParametr categoryQueryParametr)
         {
-            var categories = _categoryService.GetCategories(categoryQueryParametr);
-            var metadata = new
+            var categories = _categoryService.GetCategories(categoryQueryParametr).ToList();
+            if(categories != null)
             {
-                categories.TotalCount,
-                categories.PageSize,
-                categories.CurrentPage,
-                categories.TotalPages,
-                categories.HasNext,
-                categories.HasPrevious
-            };
-            Response.Headers.Add("paging", JsonConvert.SerializeObject(metadata));
-            return Ok(categories);
+                return Ok(categories);
+            } else
+            {
+                return NotFound("Categories list is empty or query parametr is incorrect");
+            }
+            //var metadata = new
+            //{
+            //    categories.TotalCount,
+            //    categories.PageSize,
+            //    categories.CurrentPage,
+            //    categories.TotalPages,
+            //    categories.HasNext,
+            //    categories.HasPrevious
+            //};
+            //Response.Headers.Add("paging", JsonConvert.SerializeObject(metadata));
+            
         }
         [Route("Category/{Id}")]
         [HttpGet]

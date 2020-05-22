@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using STOnline.DAL.Helpers;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace STOnline.DAL.Repositoryes.Repositoryes
 {
@@ -23,6 +25,10 @@ namespace STOnline.DAL.Repositoryes.Repositoryes
                 categoryQueryParametr.PageNumber,
                 categoryQueryParametr.PageSize);
         }
+        public async Task<IEnumerable<Category>> GetAllDesc()
+        {
+            return await _context.Set<Category>().OrderByDescending(c => c.Id).ToListAsync();
+        }   
 
 
         //public IEnumerable<Category> GetAllCategories(CategoryQueryParametr categoryQueryParametr)
