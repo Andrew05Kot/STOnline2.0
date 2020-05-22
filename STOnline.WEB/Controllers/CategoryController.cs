@@ -31,20 +31,11 @@ namespace STOnline.WEB.Controllers
             var categories = _categoryService.GetCategories(categoryQueryParametr).ToList();
             if(categories != null)
             {
-                if (categoryQueryParametr.OrderBy == "desk")
-                {
-                    return Ok(categories.OrderByDescending(c => c.CategoryName));
-                }
-                else if (categoryQueryParametr.OrderBy == "ask")
-                {
-                    return Ok(categories.OrderBy(c => c.CategoryName));
-                }
                 return Ok(categories);
             } else
             {
                 return NotFound("Categories list is empty or query parametr is incorrect");
             }
-            
             
         }
         [Route("Category/{Id}")]

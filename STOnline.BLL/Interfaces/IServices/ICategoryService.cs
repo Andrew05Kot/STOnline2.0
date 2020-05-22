@@ -11,9 +11,8 @@ namespace STOnline.BLL.Interfaces.IServices
 {
     public interface ICategoryService
     {
-        PagedList<Category> GetCategories(CategoryQueryParametr categoryQueryParametr);
+        IEnumerable<CategoryDTO> GetCategories(CategoryQueryParametr categoryQueryParametr);
         Task<IEnumerable<CategoryDTO>> GetAllCategoryes();
-        //Task<IEnumerable<Category>> GetAllCategoryesDesc();
         Task<CategoryDTO> GetCategoryById(int Id);
         Task<Category> AddCategory(CategoryDTO category);
         Task<Category> UpdateCategory(CategoryDTO category);

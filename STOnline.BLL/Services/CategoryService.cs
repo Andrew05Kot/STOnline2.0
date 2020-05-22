@@ -8,6 +8,7 @@ using STOnline.DAL.Interfaces;
 using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,14 +35,20 @@ namespace STOnline.BLL.Services.Services
             }
             return transferedToDTO;
         }
-        public PagedList<Category> GetCategories(CategoryQueryParametr categoryQueryParametr)
+        public IEnumerable<CategoryDTO> GetCategories(CategoryQueryParametr categoryQueryParametr)
         {
-            return _unitOfWork.CategoryRepository.GetCategories(categoryQueryParametr);
+            var data = _unitOfWork.CategoryRepository.GetCategories(categoryQueryParametr).ToList();
+            var result = _mapper.Map<List<Category>, List<CategoryDTO>>(data);
+            if (categoryQueryParametr.OrderBy == "desk")
+            {
+                return result.OrderByDescending(c => c.CategoryName);
+            }
+            else if (categoryQueryParametr.OrderBy == "ask")
+            {
+                return result.OrderBy(c => c.CategoryName);
+            }
+            return result;
         }
-        //public async Task<IEnumerable<Category>> GetAllCategoryesDesc()
-        //{
-        //    return await _unitOfWork.CategoryRepository.GetAllDesc();
-        //}
         public async Task<CategoryDTO> GetCategoryById(int id)
         {
             var data = await _unitOfWork.CategoryRepository.GetById(id);
