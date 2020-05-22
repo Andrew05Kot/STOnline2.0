@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.EntityFrameworkCore;
 using STOnline.DAL.DBContext;
+using STOnline.DAL.Helpers.QueryParameters;
 using STOnline.DAL.Interfaces;
 using STOnline.DAL.Interfaces.EntityInterfaces;
 using STOnline.DAL.Models;
@@ -29,7 +30,11 @@ namespace STOnline.DAL.Repositoryes
             List<TEntity> list = await _dbSet.ToListAsync();
             return list.AsQueryable();
         }
-
+        public IQueryable<TEntity> GetAllPaging()
+        {
+            return _context.Set<TEntity>()
+                .AsNoTracking();
+        }
         public async Task<TEntity> GetById(int id)
         { 
             return await _dbSet.FindAsync(id);

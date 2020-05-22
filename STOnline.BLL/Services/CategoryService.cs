@@ -2,6 +2,8 @@
 using STOnline.BLL.DTOs;
 using STOnline.BLL.Interfaces;
 using STOnline.BLL.Interfaces.IServices;
+using STOnline.DAL.Helpers;
+using STOnline.DAL.Helpers.QueryParameters;
 using STOnline.DAL.Interfaces;
 using STOnline.DAL.Models;
 using System;
@@ -32,7 +34,10 @@ namespace STOnline.BLL.Services.Services
             }
             return transferedToDTO;
         }
-
+        public PagedList<Category> GetCategories(CategoryQueryParametr categoryQueryParametr)
+        {
+            return _unitOfWork.CategoryRepository.GetCategories(categoryQueryParametr);
+        }
         public async Task<CategoryDTO> GetCategoryById(int id)
         {
             var data = await _unitOfWork.CategoryRepository.GetById(id);
@@ -54,5 +59,6 @@ namespace STOnline.BLL.Services.Services
             var data = _mapper.Map<CategoryDTO, Category>(category);
             return await _unitOfWork.CategoryRepository.Update(data);
         }
+
     }
 }

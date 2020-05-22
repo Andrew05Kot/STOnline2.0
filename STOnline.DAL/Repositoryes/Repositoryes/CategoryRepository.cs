@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using STOnline.DAL.Helpers;
 
 namespace STOnline.DAL.Repositoryes.Repositoryes
 {
@@ -14,6 +15,15 @@ namespace STOnline.DAL.Repositoryes.Repositoryes
         public CategoryRepository(ApplicationContext applicationContext) : base(applicationContext)
         {
         }
+
+        public PagedList<Category> GetCategories(CategoryQueryParametr categoryQueryParametr)
+        {
+            return PagedList<Category>.ToPagedList(
+                GetAllPaging(),
+                categoryQueryParametr.PageNumber,
+                categoryQueryParametr.PageSize);
+        }
+
 
         //public IEnumerable<Category> GetAllCategories(CategoryQueryParametr categoryQueryParametr)
         //{

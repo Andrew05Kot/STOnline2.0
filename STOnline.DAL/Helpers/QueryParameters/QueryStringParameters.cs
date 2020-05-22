@@ -6,19 +6,19 @@ namespace STOnline.DAL.Helpers.QueryParameters
 {
 	public abstract class QueryStringParameters
 	{
-		const int maxPageSize = 50;
+		const int maxPageSize = 20;
 		public int PageNumber { get; set; } = 1;
 
-		private int _pageSize = 2;
+		private int pageSize = 2;
 		public int PageSize
 		{
 			get
 			{
-				return _pageSize;
+				return pageSize;
 			}
 			set
 			{
-				_pageSize = (value > maxPageSize) ? maxPageSize : value;
+				pageSize = (value > maxPageSize) ? maxPageSize : value;
 			}
 		}
 

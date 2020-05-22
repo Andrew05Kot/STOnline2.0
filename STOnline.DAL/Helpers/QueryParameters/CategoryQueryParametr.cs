@@ -6,5 +6,9 @@ namespace STOnline.DAL.Helpers.QueryParameters
 {
     public class CategoryQueryParametr: QueryStringParameters
     {
+        public CategoryQueryParametr()
+        {
+            OrderBy = "CategoryName";
+        }
     }
 }
