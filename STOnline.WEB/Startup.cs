@@ -31,6 +31,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.CodeAnalysis;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using STOnline.BLL.DTOs;
+using STOnline.BLL.Validation;
 //using Microsoft.AspNetCore.Authentication.JwtBearer;
 //using Microsoft.IdentityModel.Tokens;
 //using STOnline.WEB.Options;
@@ -100,6 +104,14 @@ namespace STOnline.WEB
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IWorkerService, WorkerService>();
             services.AddTransient<IWorkerCategoryService, WorkerCategoryService>();
+
+            services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
+
+            //services
+            //    .AddMvc()
+            //    .AddFluentValidation();
+
+            //services.AddTransient<IValidator<CategoryDTO>, CategoryDTOValidator>();
             //services.AddIdentity<IdentityUser, IdentityRole>()
             //        .AddEntityFrameworkStores<AuthContext>()
             //        .AddDefaultTokenProviders();

@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.Results;
+using FluentValidation.Validators;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using STOnline.BLL.DTOs;
 using STOnline.BLL.Interfaces.IServices;
+using STOnline.BLL.Validation;
 using STOnline.DAL.Helpers.QueryParameters;
 using STOnline.DAL.Models;
 
@@ -46,9 +50,25 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Categoryes/category")]
         [HttpPost]
-        public async Task<Category> Post([FromBody]CategoryDTO category)
+        public async Task<IActionResult> Post([FromBody]CategoryDTO category)
         {
-            return await _categoryService.AddCategory(category);
+            CategoryDTOValidator validator = new CategoryDTOValidator();
+            ValidationResult results = validator.Validate(category);
+            if (results.IsValid)
+            {
+                return Ok( await _categoryService.AddCategory(category) );
+            } 
+            else
+            {
+                foreach(ValidationFailure failure in results.Errors)
+                {
+                    BindingList<string> errors = new BindingList<string>();
+                    errors.Add("Category is not valid: " + failure.ErrorMessage);
+                    return ValidationProblem("Category is not valid: " + failure.ErrorMessage);
+                }
+                return StatusCode(400);
+            }
+            
         }
         [Route("Category/category")]
         [HttpPut]

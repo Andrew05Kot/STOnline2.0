@@ -19,12 +19,8 @@ namespace STOnline.WEB.Controllers
         }
         [Route("Clients")]
         [HttpGet]
-        public async Task<IActionResult> Get(/*int? page*/)
+        public async Task<IActionResult> Get()
         {
-            //int pageSize = 5;
-            //int pageNumber = (page ?? 1);
-            //var result = await _clientService.GetAllClients();
-            //return result.ToPagedList(pageNumber, pageSize);
             try
             {
                 return Ok(await _clientService.GetAllClients());
