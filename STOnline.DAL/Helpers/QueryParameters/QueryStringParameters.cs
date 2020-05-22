@@ -6,6 +6,8 @@ namespace STOnline.DAL.Helpers.QueryParameters
 {
 	public abstract class QueryStringParameters
 	{
+		public string OrderBy { get; set; }
+
 		const int maxPageSize = 20;
 		public int PageNumber { get; set; } = 1;
 
@@ -22,6 +24,6 @@ namespace STOnline.DAL.Helpers.QueryParameters
 			}
 		}
 
-		public string OrderBy { get; set; }
+		
 	}
 }

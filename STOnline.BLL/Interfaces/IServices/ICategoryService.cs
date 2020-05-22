@@ -13,6 +13,7 @@ namespace STOnline.BLL.Interfaces.IServices
     {
         PagedList<Category> GetCategories(CategoryQueryParametr categoryQueryParametr);
         Task<IEnumerable<CategoryDTO>> GetAllCategoryes();
+        //Task<IEnumerable<Category>> GetAllCategoryesDesc();
         Task<CategoryDTO> GetCategoryById(int Id);
         Task<Category> AddCategory(CategoryDTO category);
         Task<Category> UpdateCategory(CategoryDTO category);

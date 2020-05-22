@@ -28,11 +28,6 @@ namespace STOnline.DAL.Helpers
 			AddRange(items);
 		}
 
-        internal static PagedList<Category> ToPagedList(Task<IQueryable<Category>> task, int pageNumber, CategoryQueryParametr categoryQueryParametr, object pageSize)
-        {
-            throw new NotImplementedException();
-        }
-
         public static PagedList<T> ToPagedList(IEnumerable<T> source, int pageNumber, int pageSize)
 		{
 			var count = source.Count();

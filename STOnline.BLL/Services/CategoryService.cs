@@ -38,6 +38,10 @@ namespace STOnline.BLL.Services.Services
         {
             return _unitOfWork.CategoryRepository.GetCategories(categoryQueryParametr);
         }
+        //public async Task<IEnumerable<Category>> GetAllCategoryesDesc()
+        //{
+        //    return await _unitOfWork.CategoryRepository.GetAllDesc();
+        //}
         public async Task<CategoryDTO> GetCategoryById(int id)
         {
             var data = await _unitOfWork.CategoryRepository.GetById(id);

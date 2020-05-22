@@ -12,6 +12,6 @@ namespace STOnline.DAL.Interfaces.Interfaces.IRepositories
     public interface ICategoryRepository : IGenericRepository<Category>
     {
         PagedList<Category> GetCategories(CategoryQueryParametr categoryQueryParametr);
-        Task<IEnumerable<Category>> GetAllDesc();
+        //IEnumerable<Category> GetAllDesc();
     }
 }
