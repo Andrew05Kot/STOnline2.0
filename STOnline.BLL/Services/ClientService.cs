@@ -21,35 +21,35 @@ namespace STOnline.BLL.Services.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Client>> GetAllClients()
+        public async Task<IEnumerable<ClientDTO>> GetAllClients()
         {
             var data = await _unitOfWork.ClientRepository.GetAll();
-            List<Client> transferedToDTO = new List<Client>();
+            List<ClientDTO> transferedToDTO = new List<ClientDTO>();
             foreach (var clients in data)
             {
-                transferedToDTO.Add(_mapper.Map<Client, Client>(clients));
+                transferedToDTO.Add(_mapper.Map<Client, ClientDTO>(clients));
             }
             return transferedToDTO;
         }
 
-        public async Task<Client> GetClientById(int id)
+        public async Task<ClientDTO> GetClientById(int id)
         {
             var data = await _unitOfWork.ClientRepository.GetById(id);
-            return _mapper.Map<Client, Client>(data);
+            return _mapper.Map<Client, ClientDTO>(data);
         }
-        public async Task<Client> AddClient(Client client)
+        public async Task<Client> AddClient(ClientDTO client)
         {
-            var data = _mapper.Map<Client, Client>(client);
+            var data = _mapper.Map<ClientDTO, Client>(client);
             return await _unitOfWork.ClientRepository.Add(data);
         }
-        public async Task<Client> UpdateClient(Client client)
+        public async Task<Client> UpdateClient(ClientDTO client)
         {
-            var data = _mapper.Map<Client, Client>(client);
+            var data = _mapper.Map<ClientDTO, Client>(client);
             return await _unitOfWork.ClientRepository.Update(data);
         }
-        public async Task<int> DeleteClient(Client client)
+        public async Task<int> DeleteClient(ClientDTO client)
         {
-            var data = _mapper.Map<Client, Client>(client);
+            var data = _mapper.Map<ClientDTO, Client>(client);
             return await _unitOfWork.ClientRepository.Delete(data);
         }
 

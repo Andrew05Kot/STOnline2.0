@@ -12,22 +12,19 @@ namespace STOnline.DAL.UnitOfWork
         private readonly ICategoryRepository _categoryRepository;
         private readonly IClientRepository _clientRepository;
         private readonly IOrderRepository _orderRepository;
-        private readonly IRepairRepository _repairRepository;
         private readonly IWorkerRepository _workerRepository;
         private readonly IWorkerCategoryRepository _workerCategoryRepository;
         
         public UnitOfWork(ICategoryRepository categoryRepository,
             IClientRepository clientRepository,
             IOrderRepository orderRepository,
-            IRepairRepository repairRepository,
             IWorkerRepository workerRepository,
             IWorkerCategoryRepository workerCategoryRepository
             )
         {
             _categoryRepository = categoryRepository;
-            ////_clientRepository = clientRepository;
+            _clientRepository = clientRepository;
             _orderRepository = orderRepository;
-            _repairRepository = repairRepository;
             _workerRepository = workerRepository;
             _workerCategoryRepository = workerCategoryRepository;
         }
@@ -50,13 +47,6 @@ namespace STOnline.DAL.UnitOfWork
             get
             {
                 return _orderRepository;
-            }
-        }
-        public IRepairRepository RepairRepository
-        {
-            get
-            {
-                return _repairRepository;
             }
         }
         public IWorkerRepository WorkerRepository

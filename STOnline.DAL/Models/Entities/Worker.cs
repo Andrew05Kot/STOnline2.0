@@ -15,9 +15,6 @@ namespace STOnline.DAL.Models
         public string WorkerFirstName { get; set; }
         public string WorkerPhoneNumber { get; set; }
         public ICollection<WorkerCategory> WorkerCategoryes { get; set; }
-        public ICollection<Repair> Repairs { get; set; }
-  
-
 
     }
 }

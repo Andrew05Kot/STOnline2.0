@@ -16,8 +16,9 @@ namespace STOnline.DAL.DBContext
         public DbSet<Category> Categories { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Repair> Repairs { get; set; }
         public DbSet<WorkerCategory> WorkerCategories { get; set; }
+
+        //public DbSet<User> Users { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
@@ -25,7 +26,7 @@ namespace STOnline.DAL.DBContext
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=ANDREYKOT\SQLEXPRESS;Database=stonline5;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=ANDREYKOT\SQLEXPRESS;Database=stonline6;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,12 +37,6 @@ namespace STOnline.DAL.DBContext
             modelBuilder.Entity<Order>()
                 .HasOne(c => c.Category)
                 .WithMany(o => o.Orders);
-            modelBuilder.Entity<Repair>()
-                .HasOne(r => r.Order)
-                .WithMany(o => o.Repairs);
-            modelBuilder.Entity<Repair>()
-                .HasOne(r => r.Worker)
-                .WithMany(o => o.Repairs);
             modelBuilder.Entity<WorkerCategory>()
                 .HasOne(w => w.Worker)
                 .WithMany(c => c.WorkerCategoryes);

@@ -14,5 +14,7 @@ namespace STOnline.BLL.Interfaces.IServices
         Task<Category> AddCategory(CategoryDTO category);
         Task<Category> UpdateCategory(CategoryDTO category);
         Task<int> DeleteCategory(CategoryDTO category);
+
+        
     }
 }

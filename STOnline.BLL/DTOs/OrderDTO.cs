@@ -13,6 +13,5 @@ namespace STOnline.BLL.DTOs
         public string ModelAuto { get; set; }
         public string AutoNumber { get; set; }
         public DateTime Data { get; set; }
-        public ICollection<RepairDTO> Repairs { get; set; }
     }
 }

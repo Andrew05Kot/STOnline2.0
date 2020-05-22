@@ -12,6 +12,5 @@ namespace STOnline.BLL.DTOs
         public string WorkerFirstName { get; set; }
         public string WorkerPhoneNumber { get; set; }
         public ICollection<WorkerCategoryDTO> WorkerCategories { get; set; }
-        public ICollection<RepairDTO> Repairs { get; set; }
     }
 }

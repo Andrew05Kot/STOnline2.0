@@ -17,7 +17,6 @@ namespace STOnline.DAL.Models
         public string ModelAuto { get; set; }
         public string AutoNumber { get; set; }
         public DateTime Data { get; set; }
-        public ICollection<Repair> Repairs { get; set; }
 
     }
 }

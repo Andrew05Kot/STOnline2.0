@@ -10,7 +10,6 @@ namespace STOnline.DAL.Interfaces
         IOrderRepository OrderRepository { get; }
         ICategoryRepository CategoryRepository { get; }
         IClientRepository ClientRepository { get; }
-        IRepairRepository RepairRepository { get; }
         IWorkerCategoryRepository WorkerCategoryRepository { get; }
         IWorkerRepository WorkerRepository { get; }
         void Complete();
