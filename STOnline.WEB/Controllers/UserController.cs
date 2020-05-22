@@ -61,7 +61,7 @@ namespace STOnline.WEB.Controllers
                     {
                         new Claim("UserID", user.Id.ToString())
                     }),
-                    Expires = DateTime.UtcNow.AddMinutes(5),
+                    Expires = DateTime.UtcNow.AddDays(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(
                         Encoding.UTF8.GetBytes("12345678987654321")), SecurityAlgorithms.HmacSha256Signature)
                 };
@@ -74,6 +74,14 @@ namespace STOnline.WEB.Controllers
             {
                 return BadRequest(new { message = "Email or password is incorrect." });
             }
+        }
+
+        [HttpPost]
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok();
         }
 
     }
