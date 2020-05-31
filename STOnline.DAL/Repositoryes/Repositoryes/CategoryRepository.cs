@@ -24,12 +24,5 @@ namespace STOnline.DAL.Repositoryes.Repositoryes
                 categoryQueryParametr.PageSize);
         }
 
-
-        //public IEnumerable<Category> GetAllCategories(CategoryQueryParametr categoryQueryParametr)
-        //{
-        //    return GetAll().Skip((categoryQueryParametr.PageNumber - 1) * categoryQueryParametr.PageSize)
-        //        .Take(categoryQueryParametr.PageSize)
-        //        .ToList();
-        //}
     }
 }

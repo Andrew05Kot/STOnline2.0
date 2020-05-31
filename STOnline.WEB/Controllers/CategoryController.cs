@@ -66,7 +66,7 @@ namespace STOnline.WEB.Controllers
                     errors.Add("Category is not valid: " + failure.ErrorMessage);
                     return ValidationProblem("Category is not valid: " + failure.ErrorMessage);
                 }
-                return StatusCode(400);
+                return StatusCode(422);
             }
             
         }

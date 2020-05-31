@@ -35,6 +35,8 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using STOnline.BLL.DTOs;
 using STOnline.BLL.Validation;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 //using Microsoft.AspNetCore.Authentication.JwtBearer;
 //using Microsoft.IdentityModel.Tokens;
 //using STOnline.WEB.Options;
@@ -53,6 +55,7 @@ namespace STOnline.WEB
         public void ConfigureServices(IServiceCollection services)
         {
             //services.Configure<AplicationSettings>(Configuration.GetSection("AplicationSettings"));
+            services.AddMvc();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<IUnitOfWork, UnitOfWork>();
@@ -107,48 +110,15 @@ namespace STOnline.WEB
 
             services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
 
-            //services
-            //    .AddMvc()
-            //    .AddFluentValidation();
-
-            //services.AddTransient<IValidator<CategoryDTO>, CategoryDTOValidator>();
-            //services.AddIdentity<IdentityUser, IdentityRole>()
-            //        .AddEntityFrameworkStores<AuthContext>()
-            //        .AddDefaultTokenProviders();
-            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            //    .AddCookie(options =>
-            //    {
-            //        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
-            //        options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
-            //    });
-            //services.AddIdentity<Client, IdentityRole>()
-            //    .AddEntityFrameworkStores<AuthContext>();
-
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //        .AddJwtBearer(options =>
-            //        {
-            //            options.RequireHttpsMetadata = false;
-            //            options.TokenValidationParameters = new TokenValidationParameters
-            //            {
-            //                // укзывает, будет ли валидироваться издатель при валидации токена
-            //                ValidateIssuer = true,
-            //                // строка, представляющая издателя
-            //                ValidIssuer = AuthOptions.ISSUER,
-
-            //                // будет ли валидироваться потребитель токена
-            //                ValidateAudience = true,
-            //                // установка потребителя токена
-            //                ValidAudience = AuthOptions.AUDIENCE,
-            //                // будет ли валидироваться время существования
-            //                ValidateLifetime = true,
-
-            //                // установка ключа безопасности
-            //                IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
-            //                // валидация ключа безопасности
-            //                ValidateIssuerSigningKey = true,
-            //            };
-            //        });
-            //// services.AddPaging();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Test API",
+                    Description = "ASP.NET Core Web API"
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -167,6 +137,11 @@ namespace STOnline.WEB
                 endpoints.MapControllers();
             });
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Test API V1");
+            });
         }
     }
 }

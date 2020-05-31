@@ -30,11 +30,7 @@ namespace STOnline.DAL.Repositoryes
             List<TEntity> list = await _dbSet.ToListAsync();
             return list.AsQueryable();
         }
-        public IQueryable<TEntity> GetAllPaging()
-        {
-            return _context.Set<TEntity>()
-                .AsNoTracking();
-        }
+        
         public async Task<TEntity> GetById(int id)
         { 
             return await _dbSet.FindAsync(id);
@@ -55,6 +51,11 @@ namespace STOnline.DAL.Repositoryes
         {
             _dbSet.Remove(entity);
             return await _context.SaveChangesAsync();
+        }
+        public IQueryable<TEntity> GetAllPaging()
+        {
+            return _context.Set<TEntity>()
+                .AsNoTracking();
         }
         public async Task<int> SaveChangesAsync()
         {
