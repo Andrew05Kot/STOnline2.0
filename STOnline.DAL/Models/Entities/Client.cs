@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace STOnline.DAL.Models
@@ -16,6 +17,7 @@ namespace STOnline.DAL.Models
         public string ClientLastName { get; set; }
         public string ClientFirstName { get; set; }
         public string ClientPhoneNumber { get; set; }
+        [AllowNull]
         public ICollection<Order> Orders { get; set; }
     }
 }

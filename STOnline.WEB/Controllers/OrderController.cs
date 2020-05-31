@@ -6,15 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using STOnline.BLL.Interfaces.IServices;
 using STOnline.BLL.DTOs;
 using STOnline.DAL.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace STOnline.Controllers
 {
     public class OrderController : ControllerBase
     {
-        IOrderService _orderService;
-        public OrderController(IOrderService orderService)
+        private readonly IOrderService _orderService;
+        private readonly IWebHostEnvironment _hostEnvironment;
+        public OrderController(IOrderService orderService, IWebHostEnvironment hostEnvironment)
         {
             _orderService = orderService;
+            _hostEnvironment = hostEnvironment;
         }
         [Route("Orders")]
         [HttpGet]
@@ -34,6 +39,22 @@ namespace STOnline.Controllers
         {
             return await _orderService.AddOrder(order);
         }
+
+        [Route("Order/order/upload/{Id}")]
+        [HttpPut]
+        public async Task Upload(int Id, [FromBody] IFormFile file)
+        {
+            var fileName = file.FileName;
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Images", fileName);
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+            var order = await _orderService.GetOrderById(Id);
+            order.ImageUrl = fileName;
+            await _orderService.UpdateOrder(order);
+        }
+
         [Route("Order/order")]
         [HttpPut]
         public async Task<Order> Put([FromBody]OrderDTO order)

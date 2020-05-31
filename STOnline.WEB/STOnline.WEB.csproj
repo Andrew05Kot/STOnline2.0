@@ -26,4 +26,8 @@
     <ProjectReference Include="..\STOnline.DAL\STOnline.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>

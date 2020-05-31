@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using STOnline.DAL.Interfaces.EntityInterfaces;
 using STOnline.DAL.Models;
 using System;
@@ -17,6 +18,6 @@ namespace STOnline.DAL.Models
         public string ModelAuto { get; set; }
         public string AutoNumber { get; set; }
         public DateTime Data { get; set; }
-
+        public string ImageUrl { get; set; }
     }
 }

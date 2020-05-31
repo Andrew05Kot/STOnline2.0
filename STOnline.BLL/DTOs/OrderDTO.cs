@@ -1,4 +1,5 @@
-﻿using STOnline.DAL.Models;
+﻿using Microsoft.AspNetCore.Http;
+using STOnline.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +14,6 @@ namespace STOnline.BLL.DTOs
         public string ModelAuto { get; set; }
         public string AutoNumber { get; set; }
         public DateTime Data { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

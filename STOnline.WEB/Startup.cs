@@ -136,7 +136,7 @@ namespace STOnline.WEB
             {
                 endpoints.MapControllers();
             });
-
+            app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
