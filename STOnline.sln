@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STOnline.DAL", "STOnline.DA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STOnline.BLL", "STOnline.BLL\STOnline.BLL.csproj", "{A7E3AE16-A633-490D-B95E-7FA534CADE04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STOnline.FRONT", "STOnline.FRONT\STOnline.FRONT.csproj", "{70E54DE4-B15C-4DFA-948F-27B0663F738C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STOnline.FRONT", "STOnline.FRONT\STOnline.FRONT.csproj", "{70E54DE4-B15C-4DFA-948F-27B0663F738C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STOnline.FRONTEND", "STOnline.FRONTEND\STOnline.FRONTEND.csproj", "{FB2EC7DF-9DEF-4DF3-871A-ACD4FB5B3957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{70E54DE4-B15C-4DFA-948F-27B0663F738C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70E54DE4-B15C-4DFA-948F-27B0663F738C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70E54DE4-B15C-4DFA-948F-27B0663F738C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2EC7DF-9DEF-4DF3-871A-ACD4FB5B3957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2EC7DF-9DEF-4DF3-871A-ACD4FB5B3957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2EC7DF-9DEF-4DF3-871A-ACD4FB5B3957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2EC7DF-9DEF-4DF3-871A-ACD4FB5B3957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
