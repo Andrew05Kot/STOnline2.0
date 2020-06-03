@@ -5,18 +5,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { UserComponent } from './user/user.component';
+import { RegistrationComponent } from './user/registration/registration.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {UserService} from "./services/user.service";
+import {HttpClientModule} from "@angular/common/http";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    UserComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

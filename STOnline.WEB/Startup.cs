@@ -119,6 +119,11 @@ namespace STOnline.WEB
                     Description = "ASP.NET Core Web API"
                 });
             });
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -142,6 +147,10 @@ namespace STOnline.WEB
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Test API V1");
             });
+            app.UseCors(builder =>
+            builder.WithOrigins("https://localhost:44380")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
         }
     }
 }

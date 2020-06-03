@@ -1,0 +1,102 @@
+input.form-control, input.form-control:focus{
+  background-color: #584B4B;
+  color: #ffff;
+  border-color: black;
+  border-radius: 0px;
+  border-width: 2px;
+}
+
+input.form-control:focus{
+  box-shadow: none;
+  border-bottom-color: black;
+}
+
+button [type=submit].btn{
+  border-radius: 20px;
+  background-color: #0000;
+  color: #ffff;
+}
+
+div.form-group label{
+  vertical-align: middle;
+  horiz-align: center;
+  color: #ffff;
+  font-weight: bold;
+}
+
+div.form-group.required>label:first-child:after{
+  content: '*';
+  color: #dc3545;
+  padding-left: 5px;
+}
+
+#toast-container > div {
+  opacity: 1;
+}
+
+form {
+  border-radius: 5%;
+  margin: 5%;
+}
+
+div.side-border{
+  border: 3px solid black;
+}
+
+*{
+  border-radius: 5%;
+  color: aliceblue;
+  background-color: #584B4B;
+}
+
+.container{
+  text-align: center;
+  border-radius: 1.5em;
+  margin-top: 7%;
+  width: 40%;
+}
+
+.s-confirm{
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 100;
+  text-align: center;
+  color: black;
+  position: relative;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135.44deg, #E55800 4.9%, #E5FF00 98.53%);
+  box-shadow: 0px 4px 12px rgba(84, 85, 190, 0.1);
+  cursor: pointer;
+  transition: 250ms ease;
+}
+
+.s-confirm:hover{
+  transform: scale(1.1);
+}
+
+.s-confirm::after{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 8px));
+  opacity: 0;
+  content: '';
+  width: 22px;
+  height: 16px;
+  background: url('../../../assets/img/tisk.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 350ms ease;
+}
+
+.s-confirm-done{
+  background-position: -100%;
+  color: transparent;
+}
+
+.s-confirm-done::after{
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}

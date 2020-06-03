@@ -1,0 +1,32 @@
+.right{
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
+  padding-right: 20px;
+  font-size: 150%;
+}
+.nav-item{
+  padding-right: 20px;
+}
+
+.navbar{
+  background-color: #584B4B;
+}
+
+.main-text{
+  font-family: "Book Antiqua";
+  color: aliceblue;
+}
+
+.nav-link{
+  color: #E55800;
+}
+
+.nav-link:hover{
+  background-color: black;
+  border-radius: 4px;
+}
+
+.active{
+  color: #FFC107;
+}
