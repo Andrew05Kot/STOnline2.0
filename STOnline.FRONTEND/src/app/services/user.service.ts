@@ -20,7 +20,7 @@ export class UserService {
       {validator : this.comparePasswords})
   });
 
-  comparePasswords(fb:FormGroup){
+  public comparePasswords(fb:FormGroup){
     let confirmPswrdCtrl = fb.get('ConfirmPassword')
     if (confirmPswrdCtrl.errors == null || 'passwordMismatch' in confirmPswrdCtrl.errors){
       if(fb.get('Password').value != confirmPswrdCtrl.value )
@@ -30,12 +30,12 @@ export class UserService {
     }
   }
 
-  register(){
-    var body = {
+  public register(){
+    let body = {
       UserName: this.formModel.value.UserName,
       Email: this.formModel.value.Email,
       Password: this.formModel.value.Passwords.Password
     };
-    return  this.http.post(this.BaseURL + '/Register', body);
+    return this.http.post(this.BaseURL + '/Register', body);
   }
 }
