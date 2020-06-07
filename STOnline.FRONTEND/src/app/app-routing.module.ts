@@ -4,6 +4,7 @@ import {HomePageComponent} from "./home-page/home-page.component";
 import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {UserComponent} from "./user/user.component";
 import {RegistrationComponent} from "./user/registration/registration.component";
+import {LoginComponent} from "./user/login/login.component";
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'user', component: UserComponent},
   {path: 'user/registration', component: RegistrationComponent},
+  {path: 'user/login', component: LoginComponent},
   {path: 'not-found', component: NotFoundPageComponent},
   {path: '**', redirectTo: 'not-found'}
 ];

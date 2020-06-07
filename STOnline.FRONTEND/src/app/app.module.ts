@@ -7,10 +7,11 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserService} from "./services/user.service";
 import {HttpClientModule} from "@angular/common/http";
 import {ToastrModule} from "ngx-toastr";
+import { LoginComponent } from './user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,16 @@ import {ToastrModule} from "ngx-toastr";
     HomePageComponent,
     NotFoundPageComponent,
     UserComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
