@@ -10,7 +10,7 @@ export class UserService {
   constructor(private fb: FormBuilder, private http: HttpClient) { }
   readonly BaseURL = 'https://localhost:44380';
 
-  formModel = this.fb.group({
+  public formModel = this.fb.group({
     UserName : ['', Validators.required],
     Email: ['', Validators.email],
     Passwords: this.fb.group({
