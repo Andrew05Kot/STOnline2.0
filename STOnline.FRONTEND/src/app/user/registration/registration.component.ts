@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../services/user.service";
-import {element} from "protractor";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +10,7 @@ import {ToastrService} from "ngx-toastr";
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(public service: UserService, private toastr : ToastrService) { }
+  constructor(public service: UserService, private toastr : ToastrService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +20,8 @@ export class RegistrationComponent implements OnInit {
       (res: any) =>{
         if(res.successed) {
           this.service.formModel.reset();
-          this.toastr.success('New user created!', 'Registration successful.')
+          this.toastr.success('New user created!', 'Registration successful.');
+          this.router.navigate(['user/login']);
         } else {
           res.errors.forEach(element => {
             switch (element.code) {

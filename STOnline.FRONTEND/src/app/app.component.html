@@ -9,13 +9,19 @@
         <a class="nav-link" href="#"><b>Registration</b></a>
       </li>
      <li class="nav-item">
-       <a class="nav-link" href="#"><b>Sing In</b></a>
-     </li>
-     <li class="nav-item">
        <a class="nav-link" href="#"><b>About</b></a>
      </li>
      <li class="nav-item">
         <a class="nav-link" href="#"><b>Help</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="user/login" *ngIf="auth.login() "><b>Login</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="user/logout" *ngIf="!auth.isAuthenticated() && auth.login()"><b>Logout</b></a>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link mobile-button"><b>Logout</b></button>
       </li>
    </ul>
   </div>
