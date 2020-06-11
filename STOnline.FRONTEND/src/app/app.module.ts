@@ -12,6 +12,7 @@ import {UserService} from "./services/user.service";
 import {HttpClientModule} from "@angular/common/http";
 import {ToastrModule} from "ngx-toastr";
 import { LoginComponent } from './user/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './user/login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

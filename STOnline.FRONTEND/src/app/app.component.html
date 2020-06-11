@@ -15,13 +15,10 @@
         <a class="nav-link" href="#"><b>Help</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  routerLink="user/login" *ngIf="auth.login() "><b>Login</b></a>
+        <a class="nav-link" routerLink="user/login"><b>Login</b></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="user/logout" *ngIf="!auth.isAuthenticated() && auth.login()"><b>Logout</b></a>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link mobile-button"><b>Logout</b></button>
+        <button class="nav-link mobile-button" *ngIf="auth.isAuthenticated() " (click)="(onLogout())"><b>Logout</b></button>
       </li>
    </ul>
   </div>

@@ -4,21 +4,21 @@
     <br>
     <h1 align="center"><b>Log In</b></h1>
 
-    <form #form='ngForm' autocomplete="off" (submit)="onSubmit(form)">
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
 
       <div class="form-group required">
         <label>Email</label>
-        <input class="form-control" #Email='ngModel' name="Email" [(ngModel)]="formModel.Email">
+        <input class="form-control" #Email="ngModel" name="Email" [(ngModel)]="formModel.Email" required>
       </div>
 
         <div class="form-group required">
           <label>Password</label>
-          <input type="password" class="form-control" formControlName="Password" [(ngModel)]="formModel.Password">
+          <input type="password" class="form-control" #Password="ngModel" name="Password" [(ngModel)]="formModel.Password" required>
         </div>
 
       <div class="form-row required">
         <div class="form-group col-md-8 offset-md-2">
-          <button onclick="this.classList.toggle('s-confirm-done');" type="submit" class="btn btn-lg btn-block s-confirm " [disabled]="form.invalid">Login</button>
+          <button onclick="this.classList.toggle('s-confirm-done');" type="submit" class="btn btn-lg btn-block s-confirm" [disabled]="form.invalid">Login</button>
         </div>
       </div>
 

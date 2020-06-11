@@ -6,22 +6,15 @@ import {AuthService} from "./auth.service";
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot,
-              state: RouterStateSnapshot):
-    Observable<boolean> | Promise<boolean> | boolean {
-    return this.authService.isAuthenticated().then( isAuth => {
-      if(isAuth) {
-        return true
-      } else {
-        this.router.navigate(['/'], {
-          queryParams: {
-            auth: false
-          }
-        })
-      }
-    });
+  canActivate(next: ActivatedRouteSnapshot,
+              state: RouterStateSnapshot): boolean {
+    if(localStorage.getItem('token') != null){
+      return true;
+    } else {
+      this.router.navigate(['user/login']);
+      return false;
+    }
   }
 }

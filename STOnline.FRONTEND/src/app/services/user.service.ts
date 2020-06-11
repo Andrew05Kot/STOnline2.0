@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,11 @@ export class UserService {
     }
   }
 
+  public loginModel = this.fb.group({
+    Email: ['', Validators.email],
+    Password: ['', [Validators.required, Validators.minLength(4)]]
+  });
+
   public register(){
     let body = {
       UserName: this.formModel.value.UserName,
@@ -41,6 +46,11 @@ export class UserService {
 
   public login(formData){
     return this.http.post(this.BaseURL + '/Login', formData);
+  }
+
+  getUserProfile(){
+    let tokenHeader = new HttpHeaders({'Authorization' : 'Bearer' + localStorage.getItem('token')});
+    return  this.http.get(this.BaseURL + '/UserProfile', {headers : tokenHeader});
   }
 
 }

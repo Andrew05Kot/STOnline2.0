@@ -5,11 +5,12 @@ import {NotFoundPageComponent} from "./not-found-page/not-found-page.component";
 import {UserComponent} from "./user/user.component";
 import {RegistrationComponent} from "./user/registration/registration.component";
 import {LoginComponent} from "./user/login/login.component";
+import {AuthGuard} from "./auth.guard";
 
 
 const routes: Routes = [
   {path:'', redirectTo:'/user/registration', pathMatch:'full'},
-  {path: 'home', component: HomePageComponent},
+  {path: 'home', component: HomePageComponent, canActivate:[AuthGuard]},
   {path: 'user', component: UserComponent},
   {path: 'user/registration', component: RegistrationComponent},
   {path: 'user/login', component: LoginComponent},

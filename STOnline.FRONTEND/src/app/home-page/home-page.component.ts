@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,14 +9,19 @@ import {Router} from "@angular/router";
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  userDetails;
 
-  ngOnInit(): void {
-  }
+  constructor(private userService: UserService) { }
 
-  onLogout(){
-    localStorage.removeItem('token');
-    this.router.navigate(['user/login']);
+  ngOnInit() {
+    this.userService.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res;
+      },
+      err => {
+        console.log(err);
+      },
+    );
   }
 
 }

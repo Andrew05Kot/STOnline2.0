@@ -1,1 +1,10 @@
-<p>home-page works!</p>
+<div class="card m-5" style="width:18em" *ngIf="userDetails">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Username: </strong> {{userDetails.UserName}}
+    </li>
+    <li class="list-group-item">
+      <strong>Username: </strong> {{userDetails.Email}}
+    </li>
+  </ul>
+</div>

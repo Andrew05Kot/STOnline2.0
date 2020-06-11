@@ -2,15 +2,12 @@ import {Injectable} from "@angular/core";
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  private isAuth = false
+
+  private isAuth = false;
 
   login() : boolean {
-    this.isAuth = true
+    this.isAuth = true;
     return true;
-  }
-
-  logout(){
-    this.isAuth = false
   }
 
   isAuthenticated(): Promise<boolean> {
