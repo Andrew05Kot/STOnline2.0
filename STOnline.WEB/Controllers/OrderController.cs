@@ -40,7 +40,7 @@ namespace STOnline.Controllers
         }
 
         [Route("Order/order/upload/{Id}")]
-        [HttpPut]
+        [HttpPost]
         public async Task Upload(int Id, [FromBody] IFormFile file)
         {
             var fileName = file.FileName;
