@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthService} from "./auth/auth.service";
 import {Router} from "@angular/router";
+import {GlobalConstants} from "./shared/global-constants";
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,17 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'FRONTEND';
+  isLogin: boolean;
+
   constructor(public auth: AuthService, private router: Router) {
+    this.isLogin = GlobalConstants.login;
   }
 
   onLogout(){
     localStorage.removeItem('token');
     this.router.navigate(['user/login']);
+    this.auth.logout();
+
   }
 
 }

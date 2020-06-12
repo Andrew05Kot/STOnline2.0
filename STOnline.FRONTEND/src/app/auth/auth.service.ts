@@ -1,20 +1,15 @@
 import {Injectable} from "@angular/core";
+import {GlobalConstants} from "../shared/global-constants";
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-  private isAuth = false;
-
-  login() : boolean {
-    this.isAuth = true;
-    return true;
+  public login() {
+    GlobalConstants.login = true;
   }
 
-  isAuthenticated(): Promise<boolean> {
-    return new Promise( resolve => {
-      setTimeout( () => {
-        resolve(this.isAuth)
-      }, 1000)
-    })
+  public logout(){
+    GlobalConstants.login = false;
   }
+
 }

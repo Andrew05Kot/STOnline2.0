@@ -4,6 +4,7 @@ import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {AuthService} from "../../auth/auth.service";
+import {GlobalConstants} from "../../shared/global-constants";
 
 interface ClientError {
   code: string;
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if(localStorage.getItem('token') != null){
-      this.router.navigate(['/home']);
+      this.router.navigate(['/user']);
     }
   }
 
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.service.loginModel.reset();
         this.authService.login();
         this.toastr.success('Welcome!');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/user']);
       },
       err => {
         if(err.status == 400){
