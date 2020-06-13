@@ -15,6 +15,7 @@ import { LoginComponent } from './user/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import { OrderComponent } from './order/order.component';
+import {LocalizationModule} from "./shared/localization/localization.module";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { OrderComponent } from './order/order.component';
     HttpClientModule,
     ToastrModule.forRoot(),
     FormsModule,
+    LocalizationModule,
     BrowserAnimationsModule
   ],
   providers: [UserService, {

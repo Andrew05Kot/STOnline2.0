@@ -2,48 +2,48 @@
 
   <div class="centered-top">
     <br>
-    <h1 align="center"><b>User Registration</b></h1>
+    <h1 align="center"><b>{{'Registration.Registration' | translate}}</b></h1>
 
     <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
 
       <div class="form-group required">
-        <label>Username</label>
+        <label>{{'Registration.UserName' | translate}}</label>
         <input class="form-control" formControlName="UserName">
-        <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required ">This field is required!</label>
+        <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required ">{{'Registration.Required' | translate}}</label>
       </div>
 
       <div class="form-group required">
-        <label>Full Name</label>
+        <label>{{'Registration.FullName' | translate}}</label>
         <input class="form-control" formControlName="FullName">
-        <label class="text-danger" *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required ">This field is required!</label>
+        <label class="text-danger" *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required ">{{'Registration.Required' | translate}}</label>
       </div>
 
       <div class="form-group required">
-        <label>Email</label>
+        <label>{{'Registration.Email' | translate}}</label>
         <input class="form-control" formControlName="Email">
-        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.required ">This field must be not empty!</label>
-        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email ">Email is not valid!</label>
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.required ">{{'Registration.Not-empty' | translate}}</label>
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email ">{{'Registration.Em-not-v' | translate}}</label>
       </div>
 
       <div formGroupName="Passwords">
         <div class="form-group required">
-          <label>Password</label>
+          <label>{{'Registration.Password' | translate}}</label>
           <input type="password" class="form-control" formControlName="Password">
-          <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is required!</label>
-          <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength ">Minimum 4 characters!</label>
+          <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">{{'Registration.Required' | translate}}</label>
+          <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength ">{{'Registration.Min-mes' | translate}}</label>
        </div>
 
        <div class="form-group required">
-          <label>Confirm Password</label>
+          <label>{{'Registration.Conf-pass' | translate}}</label>
           <input type="password" class="form-control" formControlName="ConfirmPassword">
-          <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required ">This field is required!</label>
-         <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMisMatch ">Passwords do not match!</label>
+          <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required ">{{'Registration.Required' | translate}}</label>
+         <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMisMatch ">{{'Registration.Pass-n-m' | translate}}</label>
         </div>
       </div>
 
       <div class="form-row required">
         <div class="form-group col-md-8 offset-md-2">
-            <button onclick="this.classList.toggle('s-confirm-done');" type="submit" class="btn btn-lg btn-block s-confirm " [disabled]="service.formModel.invalid">Registration</button>
+            <button onclick="this.classList.toggle('s-confirm-done');" type="submit" class="btn btn-lg btn-block s-confirm " [disabled]="service.formModel.invalid">{{'Registration.Submit' | translate}}</button>
         </div>
       </div>
     </form>

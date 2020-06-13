@@ -1,0 +1,33 @@
+{
+  "Home": "Home",
+  "Not-Found": "Opppsssss.... Page not found!",
+  "Registration": {
+    "Registration": "User Registration",
+    "UserName": "UserName",
+    "FullName": "Full Name",
+    "Email": "Email",
+    "Password": "Password",
+    "Conf-pass": "Confirm password",
+    "Submit": "Registration",
+    "Required": "The field is required!",
+    "Not-empty": "This field must be not empty!",
+    "Em-not-v": "Email is not valid!",
+    "Min-mes": "Minimum 4 characters!",
+    "Pass-n-m": "Passwords do not match!"
+    },
+  "Home-page": {
+      "Home": "Home",
+      "Registration": "Registration",
+      "Login": "Login",
+      "Logout": "Logout"
+    },
+  "Login": "Login",
+  "User": {
+    "Hello": "Hello",
+    "Welc": "Welcome to our",
+    "Service": "service",
+    "You-Can": "You can create new ",
+    "Order": "order",
+    "Now": "now"
+  }
+}
