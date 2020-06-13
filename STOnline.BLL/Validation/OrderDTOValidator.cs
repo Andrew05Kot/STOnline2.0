@@ -14,9 +14,9 @@ namespace STOnline.BLL.Validation
                 .NotEmpty()
                 .NotNull()
                 .GreaterThan(0);
-            RuleFor(x => x.Client.Id)
-                .NotNull()
-                .NotEmpty();
+            //RuleFor(x => x.Client.Id)
+            //    .NotNull()
+            //    .NotEmpty();
             RuleFor(x => x.ModelAuto)
                 .NotNull()
                 .NotEmpty()

@@ -26,13 +26,13 @@ namespace STOnline.DAL.DBContext
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=ANDREYKOT\SQLEXPRESS;Database=stonline7;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=ANDREYKOT\SQLEXPRESS;Database=stonline8;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Order>()
-                .HasOne(o => o.Client)
+                .HasOne(o => o.User)
                 .WithMany(c => c.Orders);
             modelBuilder.Entity<Order>()
                 .HasOne(c => c.Category)

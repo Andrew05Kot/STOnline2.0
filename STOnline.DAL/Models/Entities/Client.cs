@@ -17,7 +17,7 @@ namespace STOnline.DAL.Models
         public string ClientLastName { get; set; }
         public string ClientFirstName { get; set; }
         public string ClientPhoneNumber { get; set; }
-        [AllowNull]
-        public ICollection<Order> Orders { get; set; }
+        //[AllowNull]
+        //public ICollection<Order> Orders { get; set; }
     }
 }

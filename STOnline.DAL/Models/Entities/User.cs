@@ -7,6 +7,6 @@ namespace STOnline.DAL.Models.Entities
 {
     public class User: IdentityUser<int>
     {
-
+        public ICollection<Order> Orders { get; set; }
     }
 }

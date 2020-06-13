@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using STOnline.DAL.Models.Entities;
-using STOnline.WEB.ViewModels;
+using STOnline.WEB.Models;
 
 namespace STOnline.WEB.Controllers
 {

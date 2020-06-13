@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using STOnline.DAL.Interfaces.EntityInterfaces;
 using STOnline.DAL.Models;
+using STOnline.DAL.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,8 @@ namespace STOnline.DAL.Models
 {
     public class Order : BaseEntity
     {
-        public Client Client { get; set; }
+        //public Client Client { get; set; }
+        public User User { get; set; }
         public Category Category { get; set; }
         public string ModelAuto { get; set; }
         public string AutoNumber { get; set; }
