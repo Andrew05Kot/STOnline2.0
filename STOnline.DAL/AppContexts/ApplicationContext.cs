@@ -18,8 +18,6 @@ namespace STOnline.DAL.DBContext
         public DbSet<Order> Orders { get; set; }
         public DbSet<WorkerCategory> WorkerCategories { get; set; }
 
-        //public DbSet<User> Users { get; set; }
-
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
             Database.EnsureCreated();

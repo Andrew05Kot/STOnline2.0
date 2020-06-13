@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using STOnline.DAL.DBContext;
 using STOnline.DAL.Models.Entities;
 using STOnline.WEB.Models;
 
@@ -21,12 +22,14 @@ namespace STOnline.WEB.Controllers
     {
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
+        private ApplicationContext _applicationContext;
         //private readonly AplicationSettings _appSettings;
 
-        public UserController(UserManager<User> userManager, SignInManager<User> signInManager/*, IOptions<AplicationSettings> appSetings*/)
+        public UserController(ApplicationContext application, UserManager<User> userManager, SignInManager<User> signInManager/*, IOptions<AplicationSettings> appSetings*/)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _applicationContext = application;
             //_appSettings = appSetings.Value;
         }
 
@@ -87,5 +90,20 @@ namespace STOnline.WEB.Controllers
             return Ok();
         }
 
+        [Route("Users")]
+        [HttpGet]
+        public IActionResult Get()
+        {
+            IEnumerable<User> users = _applicationContext.Users.ToList();
+            try
+            {
+                return Ok(users);
+            }
+            catch
+            {
+                return StatusCode(404);
+            }
+
+        }
     }
 }

@@ -22,21 +22,45 @@ namespace STOnline.Controllers
         }
         [Route("Orders")]
         [HttpGet]
-        public async Task<IEnumerable<OrderDTO>> Get()
+        public async Task<IActionResult> Get()
         {
-            return await _orderService.GetAllOrders();
+            try
+            {
+                return Ok( await _orderService.GetAllOrders() );
+            }
+            catch 
+            {
+                return StatusCode(404);
+            }
+            
         }
         [Route("Order/{Id}")]
         [HttpGet]
-        public async Task<OrderDTO> Get(int Id)
+        public async Task<IActionResult> Get(int Id)
         {
-            return await _orderService.GetOrderById(Id);
+            try
+            {
+                return Ok(await _orderService.GetOrderById(Id));
+            }
+            catch
+            {
+                return StatusCode(404);
+            }
+            
         }
         [Route("Orders/order")]
         [HttpPost]
-        public async Task<Order> Post([FromBody]OrderDTO order)
+        public async Task<IActionResult> Post([FromBody]OrderDTO order)
         {
-            return await _orderService.AddOrder(order);
+            try
+            {
+                await _orderService.AddOrder(order);
+                return StatusCode(201);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
         }
 
         [Route("Order/order/upload/{Id}")]
@@ -56,9 +80,18 @@ namespace STOnline.Controllers
 
         [Route("Order/order")]
         [HttpPut]
-        public async Task<Order> Put([FromBody]OrderDTO order)
+        public async Task<IActionResult> Put([FromBody]OrderDTO order)
         {
-            return await _orderService.UpdateOrder(order);
+            try
+            {
+                await _orderService.UpdateOrder(order);
+                return StatusCode(201);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
+            
         }
         [Route("Order/delete/{Id}")]
         [HttpDelete]

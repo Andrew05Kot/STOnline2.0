@@ -78,13 +78,11 @@ namespace STOnline.WEB
                 };
             });
 
-            services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IWorkerRepository, WorkerRepository>();
             services.AddTransient<IWorkerCategoryRepository, WorkerCategoryRepository>();
             
-            services.AddTransient<IClientService, ClientService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IWorkerService, WorkerService>();
