@@ -8,6 +8,8 @@ import {LoginComponent} from "./user/login/login.component";
 import {AuthGuard} from "./auth/auth.guard";
 import {CategoryComponent} from "./categories/category/category.component";
 import {CategoriesComponent} from "./categories/categories.component";
+import {OrderComponent} from "./orders/order/order.component";
+import {OrdersComponent} from "./orders/orders.component";
 
 
 const routes: Routes = [
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: 'user/login', component: LoginComponent},
   {path: 'not-found', component: NotFoundPageComponent},
   {path: 'categories', component: CategoriesComponent},
+  {path: 'order', component: OrderComponent},
+  {path: 'orders', component: OrdersComponent},
   {path: '**', redirectTo: 'not-found'}
 ];
 

@@ -1,4 +1,15 @@
+
 <div class="list">
+
+  <div class="container">
+    <form #form="ngForm" autocomplete="off" (submit)="post(form)">
+      <div class="col-sm-5"><input name="subjectName" type="text" class="form-control" placeholder="{{'Category.CategoryName' | translate}}" /></div>
+      <div class="col-sm"><input class="btn btn-primary" type="submit" name="submit" value="Add"></div>
+    </form>
+  </div>
+
+  <br>
+
   <table class="table table-dark">
     <thead>
     <tr>

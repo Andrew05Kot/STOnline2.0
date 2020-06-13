@@ -36,6 +36,12 @@
   },
   "Edit": "Edit",
   "Delete": "Delete",
-  "PageSize": "Page Size"
+  "PageSize": "Page Size",
+  "Order": {
+    "Order": "Order",
+    "Creating": "Creating order",
+    "Model": "Model Auto",
+    "AutoNumber": "Auto Number"
+  }
 
 }

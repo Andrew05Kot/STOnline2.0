@@ -16,6 +16,10 @@ export class CategoryService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
+  postCategory(formData){
+    return this.http.post(this.BaseURL + '/Categoryes/category', formData);
+  }
+
   getCategories(page: number, size: number) : Observable<any>{
     return this.http.get<any>(this.BaseURL + '/CategoryesP?PageNumber=' + page + '&PageSize=' + size);
   }

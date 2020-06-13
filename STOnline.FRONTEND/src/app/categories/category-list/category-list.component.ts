@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoryService} from "../../services/category.service";
 import {Category} from "../../shared/interfaces/interfaces";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-category-list',
@@ -53,6 +54,18 @@ export class CategoryListComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  post(category: NgForm){
+    this.service.postCategory(category).subscribe(
+      res => {
+        this.refresh();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
   }
 
   refresh(){

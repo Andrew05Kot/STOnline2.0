@@ -50,7 +50,6 @@ export class UserService {
   public login(formData){
     GlobalConstants.login = true;
     return this.http.post(this.BaseURL + '/Login', formData);
-
   }
 
   getUserProfile(){

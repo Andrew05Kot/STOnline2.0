@@ -14,7 +14,7 @@ import {ToastrModule} from "ngx-toastr";
 import { LoginComponent } from './user/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthInterceptor} from "./auth/auth.interceptor";
-import { OrderComponent } from './order/order.component';
+import { OrderComponent } from './orders/order/order.component';
 import {LocalizationModule} from "./shared/localization/localization.module";
 import { CategoryComponent } from './categories/category/category.component';
 import { CategoriesComponent } from './categories/categories.component';
@@ -22,6 +22,7 @@ import { CategoryListComponent } from './categories/category-list/category-list.
 import {CategoryService} from "./services/category.service";
 import {NgxPaginationModule} from "ngx-pagination";
 import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
     OrderComponent,
     CategoryComponent,
     CategoriesComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
