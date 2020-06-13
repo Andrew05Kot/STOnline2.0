@@ -54,7 +54,7 @@ export class UserService {
   }
 
   getUserProfile(){
-    return  this.http.get(this.BaseURL + '/UserProfile');
+    return this.http.get(this.BaseURL + '/UserProfile');
   }
 
 }

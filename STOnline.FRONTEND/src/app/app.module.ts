@@ -16,6 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import { OrderComponent } from './order/order.component';
 import {LocalizationModule} from "./shared/localization/localization.module";
+import { CategoryComponent } from './categories/category/category.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryListComponent } from './categories/category-list/category-list.component';
+import {CategoryService} from "./services/category.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import {LocalizationModule} from "./shared/localization/localization.module";
     UserComponent,
     RegistrationComponent,
     LoginComponent,
-    OrderComponent
+    OrderComponent,
+    CategoryComponent,
+    CategoriesComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
@@ -37,11 +44,13 @@ import {LocalizationModule} from "./shared/localization/localization.module";
     LocalizationModule,
     BrowserAnimationsModule
   ],
-  providers: [UserService, {
+  providers: [UserService,
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+    },
+    CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

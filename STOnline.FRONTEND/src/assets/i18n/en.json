@@ -29,5 +29,9 @@
     "You-Can": "You can create new ",
     "Order": "order",
     "Now": "now"
+  },
+  "Category": {
+  "Categories": "Categories"
   }
+
 }

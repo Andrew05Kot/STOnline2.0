@@ -1,0 +1,23 @@
+<div class="list">
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Category Name</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let c of service.list">
+      <td>{{c.id}}</td>
+      <td>{{c.categoryName}}</td>
+      <td>
+        <a class="btn btn-danger">Edit</a>
+      </td>
+      <td>
+        <form method ="post">
+          <input type="hidden" name="id"/>
+          <input type="submit" value="Delete" class="btn btn-danger" />
+        </form>
+      </td>
+    </tr>
+  </table>
+</div>

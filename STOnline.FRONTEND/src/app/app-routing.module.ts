@@ -6,6 +6,8 @@ import {UserComponent} from "./user/user.component";
 import {RegistrationComponent} from "./user/registration/registration.component";
 import {LoginComponent} from "./user/login/login.component";
 import {AuthGuard} from "./auth/auth.guard";
+import {CategoryComponent} from "./categories/category/category.component";
+import {CategoriesComponent} from "./categories/categories.component";
 
 
 const routes: Routes = [
@@ -15,6 +17,7 @@ const routes: Routes = [
   {path: 'user/registration', component: RegistrationComponent},
   {path: 'user/login', component: LoginComponent},
   {path: 'not-found', component: NotFoundPageComponent},
+  {path: 'categories', component: CategoriesComponent},
   {path: '**', redirectTo: 'not-found'}
 ];
 

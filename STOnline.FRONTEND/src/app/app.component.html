@@ -3,33 +3,25 @@
   <div class="right">
     <ul class="navbar-nav">
       <li class="nav-item" routerLinkActive="active">
-       <a class="nav-link" href="#"><b>{{'Home-page.Home' | translate}}</b></a>
+       <a class="nav-link" href="/home"><b>{{'Home-page.Home' | translate}}</b></a>
      </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><b>{{'Home-page.Registration' | translate}}</b></a>
       </li>
-      <li *ngIf="!isLogin; then loginBlock else logoutBlock" class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link" href="/categories"><b>{{'Category.Categories' | translate}}</b></a>
       </li>
-      <li> |</li>
-      <li *ngIf="true; then swicher">
+<!--      <li *ngIf="!isLogin; then loginBlock else logoutBlock" class="nav-item">-->
+<!--      </li>-->
+      <li>
+        <a class="nav-link" routerLink="user/login"><b>{{'Home-page.Login' | translate}}</b></a>
       </li>
-   </ul>
-  </div>
-</nav>
+      <li>
+        <button class="nav-link mobile-button"(click)="(onLogout())"><b>{{'Home-page.Logout' | translate}}</b></button>
+      </li>
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-
-<ng-template #loginBlock>
-  <a class="nav-link" routerLink="user/login"><b>{{'Home-page.Login' | translate}}</b></a>
-</ng-template>
-<ng-template #logoutBlock>
-    <button class="nav-link mobile-button"(click)="(onLogout())"><b>{{'Home-page.Logout' | translate}}</b></button>
-</ng-template>
-
-<ng-template #swicher>
-    <nav>
+      <li>
+        <nav>
           <span>
             <select #selection (change)="switchLang(selection.value)">
               <option
@@ -41,5 +33,20 @@
               </option>
             </select>
           </span>
-    </nav>
-</ng-template>
+        </nav>
+      </li>
+   </ul>
+  </div>
+</nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+<!--<ng-template #loginBlock>-->
+<!--  <a class="nav-link" routerLink="user/login"><b>{{'Home-page.Login' | translate}}</b></a>-->
+<!--</ng-template>-->
+<!--<ng-template #logoutBlock>-->
+<!--    <button class="nav-link mobile-button"(click)="(onLogout())"><b>{{'Home-page.Logout' | translate}}</b></button>-->
+<!--</ng-template>-->
+
