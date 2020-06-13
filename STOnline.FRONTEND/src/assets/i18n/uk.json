@@ -31,6 +31,11 @@
     "Now": "зараз"
   },
   "Category": {
-    "Categories": "Категорії"
-  }
+    "Categories": "Категорії",
+    "CategoryName": "Назва категорії"
+  },
+  "Edit": "Редагувати",
+  "Delete": "Видалити",
+  "PageSize": "Розмір сторінки"
+
 }

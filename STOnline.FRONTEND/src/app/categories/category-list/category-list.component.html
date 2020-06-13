@@ -3,19 +3,19 @@
     <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Category Name</th>
+      <th scope="col">{{'Category.CategoryName' | translate}}</th>
     </tr>
     </thead>
     <tr *ngFor="let c of list ">
       <td>{{c.id}}</td>
       <td>{{c.categoryName}}</td>
       <td>
-        <a class="btn btn-danger">Edit</a>
+        <a class="btn btn-danger">{{'Edit' | translate}}</a>
       </td>
       <td>
         <form method ="post">
           <input type="hidden" name="id"/>
-          <input type="submit" value="Delete" class="btn btn-danger" />
+          <input type="submit" (click)="delete(c.id)" value="{{'Delete' | translate}}" class="btn btn-danger" />
         </form>
       </td>
     </tr>
@@ -29,7 +29,7 @@
    </ngb-pagination>
 
   <div class="center">
-    <h3>Розмір сторінки: -></h3><input style="text-align: center" class="d-flex justify-content-center" [(ngModel)]="size" (change)="onPageChanged(page, size)">
+    <h3>{{'PageSize' | translate}}: -></h3><input style="text-align: center" class="d-flex justify-content-center" [(ngModel)]="size" (change)="onPageChanged(page, size)">
   </div>
 
 </div>

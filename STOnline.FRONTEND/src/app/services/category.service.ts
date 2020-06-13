@@ -30,4 +30,7 @@ export class CategoryService {
   getCategoriesCount() : Observable<number>{
     return this.http.get<number>(this.BaseURL + '/Categoryes/Count');
   }
+  deleteCategory(id: number) {
+    return this.http.delete(this.BaseURL + '/Category/delete/'+ id);
+  }
 }

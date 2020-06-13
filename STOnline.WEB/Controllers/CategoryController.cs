@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Spreadsheet;
 using FluentValidation.Results;
 using FluentValidation.Validators;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using STOnline.BLL.DTOs;
 using STOnline.BLL.Interfaces.IServices;
@@ -27,6 +29,13 @@ namespace STOnline.WEB.Controllers
         public async Task<IEnumerable<CategoryDTO>> Get()
         {
             return await _categoryService.GetAllCategoryes();
+        }
+        [Route("Categoryes/Count")]
+        [HttpGet]
+        public int GetCount()
+        {
+            return _categoryService.GetAllCategoryes().Result.ToList().Count;
+            
         }
         [Route("CategoryesP")]
         [HttpGet]

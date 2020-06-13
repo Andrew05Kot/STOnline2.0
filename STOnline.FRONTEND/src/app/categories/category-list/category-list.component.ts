@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoryService} from "../../services/category.service";
 import {Category} from "../../shared/interfaces/interfaces";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-category-list',
@@ -14,14 +13,13 @@ export class CategoryListComponent implements OnInit {
   public size: number = 4;
   public page: number = 1;
   public collectionSize: any;
-  public some: any;
 
   constructor(public service: CategoryService) {
     this.list =  new Array<any>();
     this.service.getCategoriesCount().subscribe(
       res => {
         this.collectionSize = res;
-        console.log('========' + this.collectionSize);
+        console.log(this.collectionSize);
       }
     )
 
@@ -46,4 +44,25 @@ export class CategoryListComponent implements OnInit {
     console.log("page changed: " + pageNumber);
   }
 
+  delete(id: number){
+    this.service.deleteCategory(id).subscribe(
+      res => {
+        this.refresh();
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  refresh(){
+    this.service.getCategoriesCount().subscribe(
+      res => {
+        this.collectionSize = res;
+        console.log(this.collectionSize);
+      })
+    this.service.getCategories(this.page, this.size).subscribe( list => {
+      this.list = list;
+    })
+  }
 }

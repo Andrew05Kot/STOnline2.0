@@ -31,7 +31,11 @@
     "Now": "now"
   },
   "Category": {
-  "Categories": "Categories"
-  }
+  "Categories": "Categories",
+    "CategoryName": "Category Name"
+  },
+  "Edit": "Edit",
+  "Delete": "Delete",
+  "PageSize": "Page Size"
 
 }
