@@ -6,7 +6,7 @@
       <th scope="col">Category Name</th>
     </tr>
     </thead>
-    <tr *ngFor="let c of service.list">
+    <tr *ngFor="let c of list ">
       <td>{{c.id}}</td>
       <td>{{c.categoryName}}</td>
       <td>
@@ -20,4 +20,16 @@
       </td>
     </tr>
   </table>
+  <ngb-pagination class="d-flex justify-content-center"
+                  [collectionSize]="collectionSize"
+                  [pageSize]="size"
+                  [(page)]="page"
+                  (pageChange)="onPageChanged($event, size)"
+                  [boundaryLinks]="true">
+   </ngb-pagination>
+
+  <div class="center">
+    <h3>Розмір сторінки: -></h3><input style="text-align: center" class="d-flex justify-content-center" [(ngModel)]="size" (change)="onPageChanged(page, size)">
+  </div>
+
 </div>

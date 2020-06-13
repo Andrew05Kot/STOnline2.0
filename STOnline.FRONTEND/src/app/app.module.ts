@@ -20,6 +20,8 @@ import { CategoryComponent } from './categories/category/category.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import {CategoryService} from "./services/category.service";
+import {NgxPaginationModule} from "ngx-pagination";
+import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import {CategoryService} from "./services/category.service";
     ToastrModule.forRoot(),
     FormsModule,
     LocalizationModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+    NgbPaginationModule
   ],
   providers: [UserService,
     {
