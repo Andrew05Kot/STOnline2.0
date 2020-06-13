@@ -44,6 +44,15 @@ namespace STOnline.DAL.DBContext
                 .HasOne(w => w.Category)
                 .WithMany(c => c.WorkerCategories);
 
+            modelBuilder.Entity<Role>()
+                .HasData( new Role[]
+                    {
+                        new Role { Id = 1, Name  = "Admin" },
+                        new Role { Id = 2, Name = "Client" }
+                    }
+                );
+
+
             base.OnModelCreating(modelBuilder);
         }
 

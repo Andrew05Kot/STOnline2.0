@@ -20,8 +20,7 @@ export class RegistrationComponent implements OnInit {
       (res: any) =>{
         if(res.successed) {
           this.service.formModel.reset();
-          this.toastr.success('New user created!', 'Registration successful.');
-          this.router.navigate(['user/login']);
+          this.toastr.success('New user created!', 'Registration successful.')
         } else {
           res.errors.forEach(element => {
             switch (element.code) {
@@ -37,8 +36,8 @@ export class RegistrationComponent implements OnInit {
       },
       err => {
         console.log(err);
-        }
-      )
+      }
+    )
   }
 
 }

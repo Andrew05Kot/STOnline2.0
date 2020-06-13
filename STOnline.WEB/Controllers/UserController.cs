@@ -34,6 +34,7 @@ namespace STOnline.WEB.Controllers
         [Route("Register")]
         public async Task<Object> postUser(UserModel model)
         {
+            //model.Role = "Client";
             var user = new User()
             {
                 UserName = model.UserName,
@@ -42,6 +43,7 @@ namespace STOnline.WEB.Controllers
             try
             {
                 var result = await _userManager.CreateAsync(user, model.Password);
+                //await _userManager.AddToRoleAsync(user, model.Role);
                 return Ok(result);
             } catch (Exception e)
             {

@@ -14,11 +14,7 @@
      <li class="nav-item">
         <a class="nav-link" href="#"><b>Help</b></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="user/login"><b>Login</b></a>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link mobile-button" (click)="(onLogout())"><b>Logout</b></button>
+      <li *ngIf="!isLogin; then loginBlock else logoutBlock" class="nav-item">
       </li>
    </ul>
   </div>
@@ -27,3 +23,10 @@
   <div class="container">
     <router-outlet></router-outlet>
   </div>
+
+<ng-template #loginBlock>
+  <a class="nav-link" routerLink="user/login"><b>Login</b></a>
+</ng-template>
+<ng-template #logoutBlock>
+    <button class="nav-link mobile-button"(click)="(onLogout())"><b>Logout</b></button>
+</ng-template>

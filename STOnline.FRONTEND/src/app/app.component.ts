@@ -10,7 +10,7 @@ import {GlobalConstants} from "./shared/global-constants";
 })
 export class AppComponent {
   title = 'FRONTEND';
-  isLogin: boolean;
+  isLogin: boolean =  GlobalConstants.login;
 
   constructor(public auth: AuthService, private router: Router) {
     this.isLogin = GlobalConstants.login;
@@ -19,8 +19,7 @@ export class AppComponent {
   onLogout(){
     localStorage.removeItem('token');
     this.router.navigate(['user/login']);
-    this.auth.logout();
-
+    GlobalConstants.login = false;
   }
 
 }

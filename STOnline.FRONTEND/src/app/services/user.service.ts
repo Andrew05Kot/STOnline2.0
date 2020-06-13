@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {GlobalConstants} from "../shared/global-constants";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
-  readonly BaseURL = 'https://localhost:44380';
+  readonly BaseURL = GlobalConstants.BaseURL;
 
   public formModel = this.fb.group({
     UserName : ['', Validators.required],
@@ -18,6 +19,11 @@ export class UserService {
       ConfirmPassword: ['', Validators.required]
     },
       {validator : this.comparePasswords})
+  });
+
+  public loginModel = this.fb.group({
+    Email: ['', Validators.email],
+    Password: ['', [Validators.required, Validators.minLength(4)]]
   });
 
   public comparePasswords(fb:FormGroup){
@@ -30,22 +36,19 @@ export class UserService {
     }
   }
 
-  public loginModel = this.fb.group({
-    Email: ['', Validators.email],
-    Password: ['', [Validators.required, Validators.minLength(4)]]
-  });
-
-  public register(){
-    let body = {
+  register(){
+    var body = {
       UserName: this.formModel.value.UserName,
       Email: this.formModel.value.Email,
       Password: this.formModel.value.Passwords.Password
     };
-    return this.http.post(this.BaseURL + '/Register', body);
+    return  this.http.post(this.BaseURL + '/Register', body);
   }
 
   public login(formData){
+    GlobalConstants.login = true;
     return this.http.post(this.BaseURL + '/Login', formData);
+
   }
 
   getUserProfile(){

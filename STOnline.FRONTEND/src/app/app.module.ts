@@ -14,6 +14,7 @@ import {ToastrModule} from "ngx-toastr";
 import { LoginComponent } from './user/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthInterceptor} from "./auth/auth.interceptor";
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
     NotFoundPageComponent,
     UserComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
