@@ -13,6 +13,7 @@ export class UserService {
 
   public formModel = this.fb.group({
     UserName : ['', Validators.required],
+    FullName : ['', Validators.required],
     Email: ['', Validators.email],
     Passwords: this.fb.group({
       Password: ['', [Validators.required, Validators.minLength(4)]],
@@ -39,6 +40,7 @@ export class UserService {
   register(){
     var body = {
       UserName: this.formModel.value.UserName,
+      FullName: this.formModel.value.FullName,
       Email: this.formModel.value.Email,
       Password: this.formModel.value.Passwords.Password
     };

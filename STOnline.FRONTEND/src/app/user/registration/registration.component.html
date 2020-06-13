@@ -5,10 +5,17 @@
     <h1 align="center"><b>User Registration</b></h1>
 
     <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+
       <div class="form-group required">
         <label>Username</label>
         <input class="form-control" formControlName="UserName">
         <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required ">This field is required!</label>
+      </div>
+
+      <div class="form-group required">
+        <label>Full Name</label>
+        <input class="form-control" formControlName="FullName">
+        <label class="text-danger" *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required ">This field is required!</label>
       </div>
 
       <div class="form-group required">

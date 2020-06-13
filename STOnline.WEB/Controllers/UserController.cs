@@ -41,7 +41,8 @@ namespace STOnline.WEB.Controllers
             var user = new User()
             {
                 UserName = model.UserName,
-                Email = model.Email
+                Email = model.Email,
+                FullName = model.FullName
             };
             try
             {

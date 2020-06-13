@@ -26,7 +26,7 @@ namespace STOnline.WEB.Controllers
             var user = await _userManager.FindByIdAsync(userId);
             return new
             {
-                user.UserName,
+                user.FullName,
                 user.Email
             };
         }

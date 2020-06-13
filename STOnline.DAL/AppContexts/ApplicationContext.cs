@@ -14,7 +14,6 @@ namespace STOnline.DAL.DBContext
     public class ApplicationContext: IdentityDbContext<User, Role, int>
     {
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Client> Clients { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<WorkerCategory> WorkerCategories { get; set; }
 
