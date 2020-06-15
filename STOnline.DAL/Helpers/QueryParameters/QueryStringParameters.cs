@@ -23,7 +23,5 @@ namespace STOnline.DAL.Helpers.QueryParameters
 				pageSize = (value > maxPageSize) ? maxPageSize : value;
 			}
 		}
-
-		
 	}
 }

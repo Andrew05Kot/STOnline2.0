@@ -27,6 +27,7 @@ export class CategoryService {
   getCategoriesAsk(page: number, size: number) : Observable<any>{
     return this.http.get<any>(this.BaseURL + '/CategoryesP?PageNumber=' + page + '&PageSize=' + size + '?OrderBy=ask');
   }
+
   getCategoriesDesk(page: number, size: number) : Observable<any>{
     return this.http.get<any>(this.BaseURL + '/CategoryesP?PageNumber=' + page + '&PageSize=' + size + '?OrderBy=desk');
   }

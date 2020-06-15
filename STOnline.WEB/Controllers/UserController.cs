@@ -23,14 +23,12 @@ namespace STOnline.WEB.Controllers
         private UserManager<User> _userManager;
         private SignInManager<User> _signInManager;
         private ApplicationContext _applicationContext;
-        //private readonly AplicationSettings _appSettings;
 
-        public UserController(ApplicationContext application, UserManager<User> userManager, SignInManager<User> signInManager/*, IOptions<AplicationSettings> appSetings*/)
+        public UserController(ApplicationContext application, UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _applicationContext = application;
-            //_appSettings = appSetings.Value;
         }
 
         [HttpPost]

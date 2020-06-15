@@ -73,11 +73,11 @@ namespace STOnline.WEB.Controllers
                 {
                     BindingList<string> errors = new BindingList<string>();
                     errors.Add("Category is not valid: " + failure.ErrorMessage);
-                    return ValidationProblem("Category is not valid: " + failure.ErrorMessage);
+                    return ValidationProblem("Category is not valid: " 
+                        + failure.ErrorMessage);
                 }
                 return StatusCode(422);
             }
-            
         }
         [Route("Category/category")]
         [HttpPut]
