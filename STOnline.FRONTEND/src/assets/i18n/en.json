@@ -32,7 +32,8 @@
   },
   "Category": {
   "Categories": "Categories",
-    "CategoryName": "Category Name"
+    "CategoryName": "Category Name",
+    "Save": "Save"
   },
   "Edit": "Edit",
   "Delete": "Delete",

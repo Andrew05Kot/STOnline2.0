@@ -14,7 +14,6 @@ namespace STOnline.DAL.Models
 {
     public class Order : BaseEntity
     {
-        //public Client Client { get; set; }
         public User User { get; set; }
         public Category Category { get; set; }
         public string ModelAuto { get; set; }

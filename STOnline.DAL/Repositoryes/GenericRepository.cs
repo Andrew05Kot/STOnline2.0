@@ -30,7 +30,6 @@ namespace STOnline.DAL.Repositoryes
             List<TEntity> list = await _dbSet.ToListAsync();
             return list.AsQueryable();
         }
-        
         public async Task<TEntity> GetById(int id)
         { 
             return await _dbSet.FindAsync(id);

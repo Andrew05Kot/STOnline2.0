@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CategoryService} from "../../services/category.service";
 import {Category} from "../../shared/interfaces/interfaces";
-import {NgForm} from "@angular/forms";
+import {FormControl, FormGroup, NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-category-list',
@@ -9,6 +9,8 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent implements OnInit {
+
+  form: FormGroup;
 
   list : Category[];
   public size: number = 4;
@@ -23,10 +25,12 @@ export class CategoryListComponent implements OnInit {
         console.log(this.collectionSize);
       }
     )
-
   }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      categoryName: new FormControl('')
+    });
     this.service.getCategories(this.page, this.size).subscribe( list => {
       this.list = list;
     },
@@ -56,16 +60,21 @@ export class CategoryListComponent implements OnInit {
     )
   }
 
-  post(category: NgForm){
+  post(){
+    const category: Category = {...this.form.value};
     this.service.postCategory(category).subscribe(
       res => {
         this.refresh();
+        this.form.reset();
       },
       err => {
         console.log(err);
       }
     );
+  }
 
+  edit(category){
+    this.form.setValue(category);
   }
 
   refresh(){

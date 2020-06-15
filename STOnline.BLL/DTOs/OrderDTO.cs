@@ -10,7 +10,6 @@ namespace STOnline.BLL.DTOs
     public class OrderDTO
     {
         public int Id { get; set; }
-        //public Client Client { get; set; }
         public User User { get; set; }
         public ICollection<CategoryDTO> Categories { get; set; }
         public string ModelAuto { get; set; }

@@ -49,7 +49,6 @@ namespace STOnline.DAL.DBContext
                     }
                 );
 
-
             base.OnModelCreating(modelBuilder);
         }
 

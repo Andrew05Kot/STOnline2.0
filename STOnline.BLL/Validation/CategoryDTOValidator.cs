@@ -10,10 +10,6 @@ namespace STOnline.BLL.Validation
     {
         public CategoryDTOValidator()
         {
-            RuleFor(x => x.Id)
-                .NotEmpty()
-                .NotNull()
-                .GreaterThan(0);
             RuleFor(x => x.CategoryName)
                 .NotNull()
                 .NotEmpty()

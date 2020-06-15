@@ -16,8 +16,8 @@ export class CategoryService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
-  postCategory(formData){
-    return this.http.post(this.BaseURL + '/Categoryes/category', formData);
+  postCategory(formData: Category){
+    return this.http.post<Category>(this.BaseURL + '/Categoryes/category', formData);
   }
 
   getCategories(page: number, size: number) : Observable<any>{
@@ -37,4 +37,5 @@ export class CategoryService {
   deleteCategory(id: number) {
     return this.http.delete(this.BaseURL + '/Category/delete/'+ id);
   }
+
 }

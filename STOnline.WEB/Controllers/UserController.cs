@@ -37,7 +37,7 @@ namespace STOnline.WEB.Controllers
         [Route("Register")]
         public async Task<Object> postUser(UserModel model)
         {
-            //model.Role = "Client";
+            model.Role = "Client";
             var user = new User()
             {
                 UserName = model.UserName,
@@ -47,7 +47,7 @@ namespace STOnline.WEB.Controllers
             try
             {
                 var result = await _userManager.CreateAsync(user, model.Password);
-                //await _userManager.AddToRoleAsync(user, model.Role);
+                await _userManager.AddToRoleAsync(user, model.Role);
                 return Ok(result);
             } catch (Exception e)
             {
@@ -104,6 +104,13 @@ namespace STOnline.WEB.Controllers
             {
                 return StatusCode(404);
             }
+
+        }
+        [Route("CurrentUser")]
+        [HttpGet]
+        public async Task<User> GetCurrentUserId()
+        {
+            return await _userManager.GetUserAsync(HttpContext.User);
 
         }
     }

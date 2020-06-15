@@ -2,9 +2,9 @@
 <div class="list">
 
   <div class="container">
-    <form #form="ngForm" autocomplete="off" (submit)="post(form)">
-      <div class="col-sm-5"><input name="subjectName" type="text" class="form-control" placeholder="{{'Category.CategoryName' | translate}}" /></div>
-      <div class="col-sm"><input class="btn btn-primary" type="submit" name="submit" value="Add"></div>
+    <form  [formGroup]="form" autocomplete="off" (ngSubmit)="post()">
+      <div class="col-sm-5"><input name="subjectName" type="text" formControlName="categoryName" class="form-control" placeholder="{{'Category.CategoryName' | translate}}" /></div>
+      <div class="col-sm"><input class="btn btn-primary" type="submit" name="submit" value="{{'Category.Save' | translate}}"></div>
     </form>
   </div>
 
@@ -21,7 +21,7 @@
       <td>{{c.id}}</td>
       <td>{{c.categoryName}}</td>
       <td>
-        <a class="btn btn-danger">{{'Edit' | translate}}</a>
+        <a class="btn btn-danger" (click)="edit(c)">{{'Edit' | translate}}</a>
       </td>
       <td>
         <form method ="post">
@@ -42,5 +42,4 @@
   <div class="center">
     <h3>{{'PageSize' | translate}}: -></h3><input style="text-align: center" class="d-flex justify-content-center" [(ngModel)]="size" (change)="onPageChanged(page, size)">
   </div>
-
 </div>

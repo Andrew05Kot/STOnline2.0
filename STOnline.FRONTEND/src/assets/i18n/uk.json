@@ -32,7 +32,8 @@
   },
   "Category": {
     "Categories": "Категорії",
-    "CategoryName": "Назва категорії"
+    "CategoryName": "Назва категорії",
+    "Save": "Зберегти"
   },
   "Edit": "Редагувати",
   "Delete": "Видалити",

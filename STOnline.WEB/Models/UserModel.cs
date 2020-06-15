@@ -15,7 +15,6 @@ namespace STOnline.WEB.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-        [AllowNull]
         public ICollection<Order> Orders { get; set; }
     }
 }

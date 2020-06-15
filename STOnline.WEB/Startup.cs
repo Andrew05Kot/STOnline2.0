@@ -40,7 +40,6 @@ namespace STOnline.WEB
         {
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddDbContext<ApplicationContext>(options => options
                     .UseSqlServer(_confString.GetConnectionString("DefaultConnection")
@@ -78,10 +77,12 @@ namespace STOnline.WEB
                 };
             });
 
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddTransient<IWorkerRepository, WorkerRepository>();
-            services.AddTransient<IWorkerCategoryRepository, WorkerCategoryRepository>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IWorkerRepository, WorkerRepository>();
+            services.AddScoped<IWorkerCategoryRepository, WorkerCategoryRepository>();
             
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IOrderService, OrderService>();
