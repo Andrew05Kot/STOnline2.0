@@ -9,15 +9,19 @@ using STOnline.DAL.Models;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using STOnline.DAL.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace STOnline.Controllers
 {
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
+        private UserManager<User> _userManager;
 
-        public OrderController(IOrderService orderService)
+        public OrderController(IOrderService orderService, UserManager<User> userManager)
         {
+            _userManager = userManager;
             _orderService = orderService;
         }
         [Route("Orders")]
